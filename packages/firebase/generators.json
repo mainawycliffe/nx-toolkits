@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "firebase",
+  "version": "0.0.1",
+  "generators": {
+    "firebase": {
+      "factory": "./src/generators/firebase/generator",
+      "schema": "./src/generators/firebase/schema.json",
+      "description": "firebase generator"
+    }
+  }
+}
