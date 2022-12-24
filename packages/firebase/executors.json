@@ -2,9 +2,24 @@
   "$schema": "http://json-schema.org/schema",
   "executors": {
     "build": {
-      "implementation": "./src/executors/build/executor",
-      "schema": "./src/executors/build/schema.json",
-      "description": "build executor"
+      "implementation": "./src/executors/functions/build/executor",
+      "schema": "./src/executors/functions/build/schema.json",
+      "description": "build firebase function"
+    },
+    "deploy": {
+      "implementation": "./src/executors/functions/deploy/executor",
+      "schema": "./src/executors/functions/deploy/schema.json",
+      "description": "build and deploy firebase functions app"
+    },
+    "serve": {
+      "implementation": "./src/executors/functions/serve/executor",
+      "schema": "./src/executors/functions/serve/schema.json",
+      "description": "build and deploy firebase functions app"
+    },
+    "lint": {
+      "implementation": "./src/executors/functions/lint/executor",
+      "schema": "./src/executors/functions/lint/schema.json",
+      "description": "run eslint on firebase functions app"
     }
   }
 }

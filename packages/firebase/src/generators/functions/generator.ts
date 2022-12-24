@@ -120,15 +120,6 @@ You can find the firebase project id in the firebase console or by running fireb
       lint: {
         executor: '@nx-toolkits/firebase:lint',
       },
-      logs: {
-        executor: '@nx-toolkits/firebase:logs',
-      },
-      start: {
-        executor: '@nx-toolkits/firebase:serve',
-      },
-      shell: {
-        executor: '@nx-toolkits/firebase:shell',
-      },
     },
     tags: normalizedOptions.parsedTags,
   });
