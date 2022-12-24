@@ -3,10 +3,10 @@
   "name": "firebase",
   "version": "0.0.1",
   "generators": {
-    "firebase": {
-      "factory": "./src/generators/firebase/generator",
-      "schema": "./src/generators/firebase/schema.json",
-      "description": "firebase generator"
+    "functions": {
+      "factory": "./src/generators/functions/generator",
+      "schema": "./src/generators/functions/schema.json",
+      "description": "firebase functions generator"
     }
   }
 }

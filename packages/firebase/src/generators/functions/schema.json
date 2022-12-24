@@ -21,8 +21,21 @@
     },
     "directory": {
       "type": "string",
-      "description": "A directory where the project is placed"
+      "description": "A directory where the project is placed",
+      "alias": "d"
+    },
+    "firebaseProject": {
+      "type": "string",
+      "description": "Firebase project ID to initialize",
+      "alias": "firebase"
+    },
+    "codebase": {
+      "type": "string",
+      "description": "Firebase functions codebase",
+      "default": "default"
     }
   },
-  "required": ["name"]
+  "required": [
+    "name"
+  ]
 }
