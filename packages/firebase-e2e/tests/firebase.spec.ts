@@ -14,7 +14,7 @@ describe('firebase e2e', () => {
   // on a unique project in the workspace, such that they
   // are not dependant on one another.
   beforeAll(() => {
-    ensureNxProject('@nx-toolkit/firebase', 'dist/packages/firebase');
+    ensureNxProject('@nx-toolkits/firebase', 'dist/packages/firebase');
   });
 
   afterAll(() => {
@@ -26,7 +26,7 @@ describe('firebase e2e', () => {
   it('should create firebase', async () => {
     const project = uniq('firebase');
     await runNxCommandAsync(
-      `generate @nx-toolkit/firebase:firebase ${project}`
+      `generate @nx-toolkits/firebase:firebase ${project}`
     );
     const result = await runNxCommandAsync(`build ${project}`);
     expect(result.stdout).toContain('Executor ran');
@@ -36,7 +36,7 @@ describe('firebase e2e', () => {
     it('should create src in the specified directory', async () => {
       const project = uniq('firebase');
       await runNxCommandAsync(
-        `generate @nx-toolkit/firebase:firebase ${project} --directory subdir`
+        `generate @nx-toolkits/firebase:firebase ${project} --directory subdir`
       );
       expect(() =>
         checkFilesExist(`libs/subdir/${project}/src/index.ts`)
@@ -47,9 +47,9 @@ describe('firebase e2e', () => {
   describe('--tags', () => {
     it('should add tags to the project', async () => {
       const projectName = uniq('firebase');
-      ensureNxProject('@nx-toolkit/firebase', 'dist/packages/firebase');
+      ensureNxProject('@nx-toolkits/firebase', 'dist/packages/firebase');
       await runNxCommandAsync(
-        `generate @nx-toolkit/firebase:firebase ${projectName} --tags e2etag,e2ePackage`
+        `generate @nx-toolkits/firebase:firebase ${projectName} --tags e2etag,e2ePackage`
       );
       const project = readJson(`libs/${projectName}/project.json`);
       expect(project.tags).toEqual(['e2etag', 'e2ePackage']);

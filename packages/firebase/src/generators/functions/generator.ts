@@ -109,25 +109,25 @@ You can find the firebase project id in the firebase console or by running fireb
     sourceRoot: `${normalizedOptions.projectRoot}/src`,
     targets: {
       build: {
-        executor: '@nx-toolkit/firebase:build',
+        executor: '@nx-toolkits/firebase:build',
       },
       serve: {
-        executor: '@nx-toolkit/firebase:serve',
+        executor: '@nx-toolkits/firebase:serve',
       },
       deploy: {
-        executor: '@nx-toolkit/firebase:deploy',
+        executor: '@nx-toolkits/firebase:deploy',
       },
       lint: {
-        executor: '@nx-toolkit/firebase:lint',
+        executor: '@nx-toolkits/firebase:lint',
       },
       logs: {
-        executor: '@nx-toolkit/firebase:logs',
+        executor: '@nx-toolkits/firebase:logs',
       },
       start: {
-        executor: '@nx-toolkit/firebase:serve',
+        executor: '@nx-toolkits/firebase:serve',
       },
       shell: {
-        executor: '@nx-toolkit/firebase:shell',
+        executor: '@nx-toolkits/firebase:shell',
       },
     },
     tags: normalizedOptions.parsedTags,
