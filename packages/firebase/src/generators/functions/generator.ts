@@ -181,5 +181,5 @@ You can find the firebase project id in the firebase console or by running fireb
   );
 
   // install dev dependencies
-  await installDependencies();
+  installDependencies();
 }
