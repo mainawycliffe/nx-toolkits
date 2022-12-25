@@ -177,6 +177,7 @@ You can find the firebase project id in the firebase console or by running fireb
     },
     {
       'firebase-functions-test': 'latest',
+      'eslint-plugin-import': '8.15.0',
     }
   );
 
