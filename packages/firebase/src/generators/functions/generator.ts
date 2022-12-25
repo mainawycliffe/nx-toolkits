@@ -144,6 +144,8 @@ You can find the firebase project id in the firebase console or by running fireb
       'firebase-debug.*.log',
     ],
     predeploy: [
+      // we are using nx to run the linting and building, so we will replace
+      // this to use the nx cli
       'npm --prefix "$RESOURCE_DIR" run lint',
       'npm --prefix "$RESOURCE_DIR" run build',
     ],
@@ -177,7 +179,6 @@ You can find the firebase project id in the firebase console or by running fireb
     },
     {
       'firebase-functions-test': 'latest',
-      'eslint-plugin-import': '8.15.0',
     }
   );
 
