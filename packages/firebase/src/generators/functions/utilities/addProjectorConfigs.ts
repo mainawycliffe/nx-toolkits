@@ -30,8 +30,6 @@ export default function addProjectConfigs(
           tsConfig: `${normalizedOptions.projectRoot}/tsconfig.json`,
           main: `${normalizedOptions.projectDirectory}/src/index.ts`,
           buildableProjectDepsInPackageJsonType: 'dependencies', // use dependencies instead of peerDependencies
-          clean: true, // clean the output directory before building
-          updateBuildableProjectDepsInPackageJson: true, // update the package.json with the dependencies of the buildable project
         },
       },
       deploy: {
