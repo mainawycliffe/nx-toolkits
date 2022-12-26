@@ -33,6 +33,29 @@
       "type": "string",
       "description": "Firebase functions codebase",
       "default": "default"
+    },
+    "nodeVersion": {
+      "type": "string",
+      "description": "Firebase functions node runtime version e.g. 14, 16 and 18",
+      "default": "16",
+      "x-prompt": {
+        "message": "What node runtime version would you like to use?",
+        "type": "list",
+        "items": [
+          {
+            "value": "14",
+            "label": "Node 14"
+          },
+          {
+            "value": "16",
+            "label": "Node 16"
+          },
+          {
+            "value": "18",
+            "label": "Node 18"
+          }
+        ]
+      }
     }
   },
   "required": [

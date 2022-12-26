@@ -1,5 +1,5 @@
 import { formatFiles, getWorkspaceLayout, names, Tree } from '@nrwl/devkit';
-import { FirebaseGeneratorSchema } from './schema';
+import { FirebaseGeneratorSchema, FirebaseNodeRuntimeVersion } from './schema';
 import addDependencies from './utilities/addDependencies';
 import addEslintConfigs from './utilities/addEslintConfigs';
 import addFiles from './utilities/addFiles';
@@ -12,6 +12,7 @@ export interface NormalizedSchema extends FirebaseGeneratorSchema {
   projectRoot: string;
   projectDirectory: string;
   parsedTags: string[];
+  nodeVersion: FirebaseNodeRuntimeVersion;
 }
 
 function normalizeOptions(
