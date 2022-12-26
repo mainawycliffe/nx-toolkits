@@ -5,6 +5,7 @@ export default function addProjectConfigs(
   tree: Tree,
   normalizedOptions: NormalizedSchema
 ) {
+  console.log({ normalizedOptions });
   addProjectConfiguration(tree, normalizedOptions.projectName, {
     root: normalizedOptions.projectRoot,
     projectType: 'library',
@@ -28,7 +29,7 @@ export default function addProjectConfigs(
         executor: '@nrwl/linter:eslint',
         outputs: ['{options.outputFile}'],
         options: {
-          lintFilePatterns: [`**/*.ts`],
+          lintFilePatterns: [`${normalizedOptions.projectRoot}/**/*.ts`],
           fix: true,
         },
       },

@@ -1,6 +1,7 @@
 import { formatFiles, getWorkspaceLayout, names, Tree } from '@nrwl/devkit';
 import { FirebaseGeneratorSchema } from './schema';
 import addDependencies from './utilities/addDependencies';
+import addEslintConfigs from './utilities/addEslintConfigs';
 import addFiles from './utilities/addFiles';
 import addFirebaseJSON from './utilities/addFirebaseJSON';
 import addProjectConfigs from './utilities/addProjectorConfigs';
@@ -46,7 +47,7 @@ export default async function (tree: Tree, options: FirebaseGeneratorSchema) {
   addProjectConfigs(tree, normalizedOptions);
   addFirebaseJSON(tree, normalizedOptions);
 
-  // add linting and building to the project
+  addEslintConfigs(tree, normalizedOptions);
 
   addFiles(tree, normalizedOptions);
 
