@@ -15,15 +15,13 @@ connect it to the Firebase project using the `--project` option. This allows for
 normal firebase cli commands to be used to work, as if it was an app generated
 using firebase cli.
 
-````bash
-
 ### Generate a Firebase Functions app
 
 Use the generator to generate a Firebase Functions app:
 
 ```bash
 nx g @nrwl/firebase:functions
-````
+```
 
 This will generate a Firebase Functions app in the `apps` folder.
 
