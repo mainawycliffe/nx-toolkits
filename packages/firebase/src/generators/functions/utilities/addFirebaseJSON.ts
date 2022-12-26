@@ -3,6 +3,7 @@ import { NormalizedSchema } from '../generator';
 
 type FirebaseFunctionConfig = {
   source: string;
+  runtime: 'nodejs16' | 'nodejs14' | 'nodejs12' | 'nodejs18';
   codebase: 'default' | string;
   ignore: string[];
   predeploy: string[];
@@ -22,9 +23,10 @@ export default function addFirebaseJSON(tree: Tree, options: NormalizedSchema) {
   const firebaseJson = firebaseJsonContent
     ? JSON.parse(firebaseJsonContent)
     : null;
-  const functionsDirectory = `dist/${options.projectRoot}/src`;
+  const functionsDirectory = `dist/${options.projectRoot}`;
   const firebaseFunctionConfig: FirebaseFunctionConfig = {
     source: functionsDirectory,
+    runtime: 'nodejs16',
     codebase,
     ignore: [
       'node_modules',
