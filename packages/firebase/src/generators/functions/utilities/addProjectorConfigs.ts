@@ -14,15 +14,12 @@ export default function addProjectConfigs(
         executor: '@nrwl/js:tsc',
         options: {
           outputPath: `dist/${normalizedOptions.projectRoot}`,
-          tsConfig: `${normalizedOptions.projectRoot}/src/tsconfig.json`,
+          tsConfig: `${normalizedOptions.projectRoot}/tsconfig.json`,
+          main: `${normalizedOptions.projectDirectory}/src/index.ts`,
         },
       },
       serve: {
         executor: '@nx-toolkits/firebase:serve',
-      },
-      deploy: {
-        executor: '@nx-toolkits/firebase:deploy',
-        dependsOn: ['build'],
       },
       lint: {
         executor: '@nrwl/linter:eslint',
@@ -31,6 +28,10 @@ export default function addProjectConfigs(
           lintFilePatterns: [`${normalizedOptions.projectRoot}/**/*.ts`],
           fix: true,
         },
+      },
+      deploy: {
+        executor: '@nx-toolkits/firebase:deploy',
+        dependsOn: ['build', 'lint'],
       },
     },
     tags: normalizedOptions.parsedTags,
