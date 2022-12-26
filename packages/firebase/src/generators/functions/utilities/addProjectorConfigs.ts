@@ -10,17 +10,6 @@ export default function addProjectConfigs(
     projectType: 'library',
     sourceRoot: `${normalizedOptions.projectRoot}/src`,
     targets: {
-      build: {
-        executor: '@nrwl/js:tsc',
-        options: {
-          outputPath: `dist/${normalizedOptions.projectRoot}`,
-          tsConfig: `${normalizedOptions.projectRoot}/tsconfig.json`,
-          main: `${normalizedOptions.projectDirectory}/src/index.ts`,
-        },
-      },
-      serve: {
-        executor: '@nx-toolkits/firebase:serve',
-      },
       lint: {
         executor: '@nrwl/linter:eslint',
         outputs: ['{options.outputFile}'],
@@ -29,9 +18,22 @@ export default function addProjectConfigs(
           fix: true,
         },
       },
+      // todo: will circle back to this later
+      // serve: {
+      //   executor: '@nx-toolkits/firebase:serve',
+      // },
+      build: {
+        executor: '@nrwl/js:tsc',
+        dependsOn: ['lint'],
+        options: {
+          outputPath: `dist/${normalizedOptions.projectRoot}`,
+          tsConfig: `${normalizedOptions.projectRoot}/tsconfig.json`,
+          main: `${normalizedOptions.projectDirectory}/src/index.ts`,
+        },
+      },
       deploy: {
         executor: '@nx-toolkits/firebase:deploy',
-        dependsOn: ['build', 'lint'],
+        dependsOn: ['build'],
       },
     },
     tags: normalizedOptions.parsedTags,
