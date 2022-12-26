@@ -8,11 +8,11 @@ export default function addDependencies(tree: Tree) {
   const installDependencies = addDependenciesToPackageJson(
     tree,
     {
-      'firebase-admin': 'latest',
-      'firebase-functions': 'latest',
+      'firebase-admin': '^11.4.1',
+      'firebase-functions': '^4.1.1',
     },
     {
-      'firebase-functions-test': 'latest',
+      'firebase-functions-test': '^3.0.0',
       '@nrwl/js': nxWorkspaceVersion || 'latest',
     }
   );
