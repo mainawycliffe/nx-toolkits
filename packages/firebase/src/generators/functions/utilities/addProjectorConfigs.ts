@@ -5,7 +5,6 @@ export default function addProjectConfigs(
   tree: Tree,
   normalizedOptions: NormalizedSchema
 ) {
-  console.log({ normalizedOptions });
   addProjectConfiguration(tree, normalizedOptions.projectName, {
     root: normalizedOptions.projectRoot,
     projectType: 'library',

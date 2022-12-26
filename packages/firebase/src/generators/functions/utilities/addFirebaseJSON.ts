@@ -1,4 +1,4 @@
-import { Tree } from '@nrwl/devkit';
+import { Tree, writeJson } from '@nrwl/devkit';
 import { NormalizedSchema } from '../generator';
 
 type FirebaseFunctionConfig = {
@@ -53,5 +53,5 @@ export default function addFirebaseJSON(tree: Tree, options: NormalizedSchema) {
     ],
   };
 
-  tree.write('firebase.json', JSON.stringify(firebaseConfigs, null, 2));
+  writeJson(tree, 'firebase.json', firebaseConfigs);
 }

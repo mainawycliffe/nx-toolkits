@@ -1,4 +1,4 @@
-import { Tree } from '@nrwl/devkit';
+import { Tree, writeJson } from '@nrwl/devkit';
 import { NormalizedSchema } from '../generator';
 
 export default function upsertFirebaseRC(
@@ -27,7 +27,7 @@ You can find the firebase project id in the firebase console or by running fireb
     );
   }
 
-  const firebaseRCJSON = {
+  const firebaseConfigJSON = {
     projects: {
       default: firebaseProjectId,
       // aliases can be used to connect to different firebase projects but
@@ -36,5 +36,5 @@ You can find the firebase project id in the firebase console or by running fireb
   };
 
   // create .firebaserc file
-  tree.write('.firebaserc', JSON.stringify(firebaseRCJSON, null, 2));
+  writeJson(tree, '.firebaserc', firebaseConfigJSON);
 }
