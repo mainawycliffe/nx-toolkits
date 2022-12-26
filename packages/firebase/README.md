@@ -10,7 +10,7 @@ npm install -D @nx-toolkits/firebase
 
 ## Firebase Functions
 
-We generate a Firebase Functions app using the `@nrwl/firebase:functions` and
+We generate a Firebase Functions app using the `@nx-toolkits/firebase:functions` and
 connect it to the Firebase project using the `--project` option. This allows for
 normal firebase cli commands to be used to work, as if it was an app generated
 using firebase cli.
@@ -20,7 +20,7 @@ using firebase cli.
 Use the generator to generate a Firebase Functions app:
 
 ```bash
-nx g @nrwl/firebase:functions
+nx g @nx-toolkits/firebase:functions
 ```
 
 This will generate a Firebase Functions app in the `apps` folder.
