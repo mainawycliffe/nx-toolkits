@@ -1,4 +1,4 @@
-import { Tree, writeJson } from '@nrwl/devkit';
+import { detectPackageManager, Tree, writeJson } from '@nrwl/devkit';
 import { NormalizedSchema } from '../generator';
 
 type FirebaseFunctionConfig = {
@@ -13,13 +13,16 @@ type FirebaseFunctionConfigs = FirebaseFunctionConfig[];
 export default function addFirebaseJSON(tree: Tree, options: NormalizedSchema) {
   const codebase = options.codebase || 'default';
 
+  const packageManager = detectPackageManager();
+  const commandToRunNX = packageManager === 'npm' ? 'npx' : packageManager;
+
   // connect to firebase, by modifying the firebase.json file
   // and point it to the new functions directory
   const firebaseJsonContent = tree.read('firebase.json')?.toString();
   const firebaseJson = firebaseJsonContent
     ? JSON.parse(firebaseJsonContent)
     : null;
-  const functionsDirectory = `${options.projectRoot}/src`;
+  const functionsDirectory = `dist/${options.projectRoot}/src`;
   const firebaseFunctionConfig: FirebaseFunctionConfig = {
     source: functionsDirectory,
     codebase,
@@ -30,10 +33,9 @@ export default function addFirebaseJSON(tree: Tree, options: NormalizedSchema) {
       'firebase-debug.*.log',
     ],
     predeploy: [
-      // we are using nx to run the linting and building, so we will replace
-      // this to use the nx cli
-      // 'npm --prefix "$RESOURCE_DIR" run lint',
-      // 'npm --prefix "$RESOURCE_DIR" run build',
+      // let's use the nx cli to run the linting and building, build depends on
+      // lint, so we don't need to run lint first
+      `${commandToRunNX} nx run ${options.projectName}:build`,
     ],
   };
 
