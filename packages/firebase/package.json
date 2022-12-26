@@ -1,7 +1,26 @@
 {
   "name": "@nx-toolkits/firebase",
   "version": "0.0.1",
+  "description": "Nx generator plugin for Firebase",
+  "keywords": [
+    "firebase",
+    "firebase functions",
+    "nx",
+    "nrwl/nx",
+    "nx workspace",
+    "nx plugin",
+    "firebase generators"
+  ],
   "main": "src/index.js",
   "generators": "./generators.json",
-  "executors": "./executors.json"
+  "executors": "./executors.json",
+  "author": "Maina Wycliffe <wmmaina7@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mainawycliffe/nx-toolkits.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mainawycliffe/nx-toolkits/issues"
+  }
 }
