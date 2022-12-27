@@ -16,6 +16,9 @@ jobs:
           registry-url: https://registry.npmjs.org/
 
       - uses: nrwl/nx-set-shas@v3
+        id: nx-toolkit-nx-set-shas
+        with:
+          workflow-id: 'firebase-publish'
 
       - uses: pnpm/action-setup@v2
         name: Install pnpm
