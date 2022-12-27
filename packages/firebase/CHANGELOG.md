@@ -6,6 +6,10 @@ This file was generated using [@jscutlery/semver](https://github.com/jscutlery/s
 
 
 
+## [0.1.1](https://github.com/mainawycliffe/nx-toolkit/compare/firebase-0.1.0...firebase-0.1.1) (2022-12-27)
+
+
+
 # 0.1.0 (2022-12-27)
 
 
