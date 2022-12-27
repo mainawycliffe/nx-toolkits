@@ -1,0 +1,39 @@
+{
+  "extends": [
+    "@commitlint/config-angular"
+  ],
+  "rules": {
+    "body-leading-blank": [
+      2,
+      "always"
+    ],
+    "footer-leading-blank": [
+      2,
+      "always"
+    ],
+    "scope-enum": [
+      2,
+      "always",
+      [
+        "firebase"
+      ]
+    ],
+    "type-enum": [
+      2,
+      "always",
+      [
+        "build",
+        "ci",
+        "chore",
+        "docs",
+        "feat",
+        "fix",
+        "perf",
+        "refactor",
+        "revert",
+        "style",
+        "test"
+      ]
+    ]
+  }
+}
