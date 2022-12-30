@@ -67,7 +67,6 @@
       "options": {
         "preset": "angular",
         "commitMessageFormat": "chore(${projectName}): release version ${version}",
-        "push": true,
         "skipCommitTypes": [
           "chore",
           "docs",
@@ -79,25 +78,6 @@
           "ci",
           "revert"
         ]
-      }
-    },
-    "github": {
-      "dependsOn": [
-        "build"
-      ],
-      "executor": "@jscutlery/semver:github",
-      "options": {
-        "tag": "${tag}",
-        "notes": "${notes}"
-      }
-    },
-    "npm": {
-      "dependsOn": [
-        "build"
-      ],
-      "command": "ngx-deploy-npm:deploy",
-      "options": {
-        "access": "public"
       }
     }
   },
