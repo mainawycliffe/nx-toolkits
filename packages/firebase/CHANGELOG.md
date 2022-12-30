@@ -2,6 +2,20 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [0.2.0](https://github.com/mainawycliffe/nx-toolkit/compare/firebase-0.1.4...firebase-0.2.0) (2022-12-30)
+
+
+### Bug Fixes
+
+* **firebase:** generate an application not a library ([adb9b3e](https://github.com/mainawycliffe/nx-toolkit/commit/adb9b3e17cb372d1c8fe5289421c7a4f354bcd97))
+
+
+### Features
+
+* **firebase:** use firebase codebase to organize functions app ([1ddcac8](https://github.com/mainawycliffe/nx-toolkit/commit/1ddcac8cf7ed528e6218b40dd7cf8fa05bc0dc1d)), closes [#27](https://github.com/mainawycliffe/nx-toolkit/issues/27)
+
+
+
 ## [0.1.4](https://github.com/mainawycliffe/nx-toolkit/compare/firebase-0.1.3...firebase-0.1.4) (2022-12-28)
 
 
