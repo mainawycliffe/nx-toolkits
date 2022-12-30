@@ -45,3 +45,4 @@ firebase.json
 .firebaserc
 # packages/functions
 firebase-debug.log
+ui-debug.log
