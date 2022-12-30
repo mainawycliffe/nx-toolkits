@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.2.1](https://github.com/mainawycliffe/nx-toolkit/compare/firebase-0.2.0...firebase-0.2.1) (2022-12-30)
+
+
+### Bug Fixes
+
+* **firebase:** put generated project in apps directory ([aa022bc](https://github.com/mainawycliffe/nx-toolkit/commit/aa022bca221eec64ffca14e993c89f6389df7b9d))
+
+
+
 # [0.2.0](https://github.com/mainawycliffe/nx-toolkit/compare/firebase-0.1.4...firebase-0.2.0) (2022-12-30)
 
 
