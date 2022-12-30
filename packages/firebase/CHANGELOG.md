@@ -2,6 +2,10 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.2.4](https://github.com/mainawycliffe/nx-toolkit/compare/firebase-0.2.3...firebase-0.2.4) (2022-12-30)
+
+
+
 ## [0.2.3](https://github.com/mainawycliffe/nx-toolkit/compare/firebase-0.2.2...firebase-0.2.3) (2022-12-30)
 
 
