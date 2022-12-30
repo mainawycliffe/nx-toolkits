@@ -39,6 +39,17 @@ export default function addProjectConfigs(
           buildableProjectDepsInPackageJsonType: 'dependencies', // use dependencies instead of peerDependencies
         },
       },
+      watch: {
+        executor: '@nrwl/js:tsc',
+        dependsOn: ['lint'],
+        options: {
+          outputPath: `dist/${normalizedOptions.projectRoot}`,
+          tsConfig: `${normalizedOptions.projectRoot}/tsconfig.json`,
+          main: `${normalizedOptions.projectDirectory}/src/index.ts`,
+          buildableProjectDepsInPackageJsonType: 'dependencies', // use dependencies instead of peerDependencies
+          watch: true,
+        },
+      },
       deploy: {
         command: `firebase deploy --only functions${appendCodebase}`,
         dependsOn: ['build'],
