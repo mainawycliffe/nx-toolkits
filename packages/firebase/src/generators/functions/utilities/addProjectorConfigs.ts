@@ -7,7 +7,7 @@ export default function addProjectConfigs(
 ) {
   addProjectConfiguration(tree, normalizedOptions.projectName, {
     root: normalizedOptions.projectRoot,
-    projectType: 'library',
+    projectType: 'application',
     sourceRoot: `${normalizedOptions.projectRoot}/src`,
     targets: {
       lint: {
