@@ -48,7 +48,10 @@ jobs:
       - name: Build
         run: pnpm nx run firebase:build
 
-      - run: npm publish
+      - name: Release
+        run: pnpm nx run firebase:github
+
+      - name: npm publish
+        run: pnpm nx run firebase:npm
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-        working-directory: dist/packages/firebase
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
