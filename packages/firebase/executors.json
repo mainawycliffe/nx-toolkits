@@ -1,11 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
   "executors": {
-    "deploy": {
-      "implementation": "./src/executors/functions/deploy/executor",
-      "schema": "./src/executors/functions/deploy/schema.json",
-      "description": "build and deploy firebase functions app"
-    },
     "serve": {
       "implementation": "./src/executors/functions/serve/executor",
       "schema": "./src/executors/functions/serve/schema.json",

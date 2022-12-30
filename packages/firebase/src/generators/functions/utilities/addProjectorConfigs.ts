@@ -5,6 +5,13 @@ export default function addProjectConfigs(
   tree: Tree,
   normalizedOptions: NormalizedSchema
 ) {
+  // As firebase allows you to organize your projects in codebases, we need to
+  // append the codebase to the command, so that we can deploy the correct
+  // functions only.
+  // Docs: https://firebase.google.com/docs/functions/beta/organize-functions
+  const { codebase } = normalizedOptions;
+  const appendCodebase = codebase !== 'default' ? `:${codebase}` : '';
+
   addProjectConfiguration(tree, normalizedOptions.projectName, {
     root: normalizedOptions.projectRoot,
     projectType: 'application',
@@ -33,7 +40,7 @@ export default function addProjectConfigs(
         },
       },
       deploy: {
-        executor: '@nx-toolkits/firebase:deploy',
+        command: `firebase deploy --only functions${appendCodebase}`,
         dependsOn: ['build'],
         options: {
           ...(normalizedOptions.codebase
