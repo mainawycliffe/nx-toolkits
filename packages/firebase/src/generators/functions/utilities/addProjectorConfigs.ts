@@ -35,6 +35,11 @@ export default function addProjectConfigs(
       deploy: {
         executor: '@nx-toolkits/firebase:deploy',
         dependsOn: ['build'],
+        options: {
+          ...(normalizedOptions.codebase
+            ? { codebase: normalizedOptions.codebase }
+            : {}),
+        },
       },
     },
     tags: normalizedOptions.parsedTags,
