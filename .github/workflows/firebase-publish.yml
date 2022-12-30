@@ -49,6 +49,8 @@ jobs:
 
       - name: Release
         run: pnpm nx run firebase:github
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: npm publish
         run: pnpm nx run firebase:npm
