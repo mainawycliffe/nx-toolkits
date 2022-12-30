@@ -2,6 +2,21 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [0.3.0](https://github.com/mainawycliffe/nx-toolkit/compare/firebase-0.2.7...firebase-0.3.0) (2022-12-30)
+
+
+### Bug Fixes
+
+* **firebase:** fix firebase deploy failing occasionally ([2025e8a](https://github.com/mainawycliffe/nx-toolkit/commit/2025e8afcf93fbc708dfc6b27a0f1b2134013f32))
+
+
+### Features
+
+* add serve executor for firebase emulator ([bdc4351](https://github.com/mainawycliffe/nx-toolkit/commit/bdc4351be17806901ecba12f72c55fa1de22b618))
+* **firebase:** add ability to watch file changes and build ([9355696](https://github.com/mainawycliffe/nx-toolkit/commit/9355696ff448b9de43cda7f7e4961bd77bfc1925))
+
+
+
 ## [0.2.1](https://github.com/mainawycliffe/nx-toolkit/compare/firebase-0.2.0...firebase-0.2.1) (2022-12-30)
 
 ### Bug Fixes
