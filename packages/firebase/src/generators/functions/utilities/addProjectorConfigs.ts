@@ -52,12 +52,6 @@ export default function addProjectConfigs(
       },
       deploy: {
         command: `firebase deploy --only functions${appendCodebase}`,
-        dependsOn: ['build'],
-        options: {
-          ...(normalizedOptions.codebase
-            ? { codebase: normalizedOptions.codebase }
-            : {}),
-        },
       },
     },
     tags: normalizedOptions.parsedTags,
