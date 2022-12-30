@@ -48,12 +48,13 @@ jobs:
       - name: Build
         run: pnpm nx run firebase:build
 
-      - name: Release
-        run: pnpm nx run firebase:github
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "dist/packages/firebase/*.*"
+          bodyFile: "packages/firebase/CHANGELOG.md"
 
       - name: npm publish
-        run: pnpm nx run firebase:npm
+        run: npm publish dist/packages/firebase --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
