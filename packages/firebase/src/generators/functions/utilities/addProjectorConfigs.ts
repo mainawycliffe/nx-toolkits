@@ -25,10 +25,6 @@ export default function addProjectConfigs(
           fix: true,
         },
       },
-      // todo: will circle back to this later
-      // serve: {
-      //   executor: '@nx-toolkits/firebase:serve',
-      // },
       build: {
         executor: '@nrwl/js:tsc',
         dependsOn: ['lint'],
@@ -49,6 +45,9 @@ export default function addProjectConfigs(
           buildableProjectDepsInPackageJsonType: 'dependencies', // use dependencies instead of peerDependencies
           watch: true,
         },
+      },
+      serve: {
+        command: `firebase emulators:start --only functions${appendCodebase}`,
       },
       deploy: {
         command: `firebase deploy --only functions${appendCodebase}`,
