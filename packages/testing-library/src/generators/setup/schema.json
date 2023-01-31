@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "Setup",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "The project to setup Testing Library for",
+      "$default": {
+        "$source": "projectName"
+      },
+      "x-priority": "important"
+    },
+    "framework": {
+      "type": "string",
+      "description": "The framework to setup Testing Library for",
+      "x-prompts": [
+        {
+          "name": "framework",
+          "message": "Which framework do you want to setup Testing Library for?",
+          "type": "list",
+          "items": [
+            {
+              "name": "React",
+              "value": "react"
+            },
+            {
+              "name": "Angular",
+              "value": "angular"
+            },
+            {
+              "name": "Vue",
+              "value": "vue"
+            },
+            {
+              "name": "Svelte",
+              "value": "svelte"
+            },
+            {
+              "name": "Marko",
+              "value": "marko"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "required": []
+}
