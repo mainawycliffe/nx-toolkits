@@ -3,6 +3,7 @@ import {
   formatFiles,
   readProjectConfiguration,
   Tree,
+  logger,
 } from '@nrwl/devkit';
 import { Framework, SetupGeneratorSchema } from './schema';
 
@@ -50,9 +51,12 @@ const frameworkSpecificDependencies: Record<
 export default async function (tree: Tree, options: SetupGeneratorSchema) {
   const normalizedOptions = normalizeOptions(tree, options);
 
+  logger.info(`Setting up testing-library for ${options.framework}`);
+
   // probably should read tsconfig.json and fetch the path to the test setup file
   const jestTestSetupFilename = `${normalizedOptions.projectRoot}/src/test-setup.ts`;
 
+  // TODO: we need to modify not replace the file
   tree.write(jestTestSetupFilename, `import '@testing-library/jest-dom';`);
 
   addDependenciesToPackageJson(

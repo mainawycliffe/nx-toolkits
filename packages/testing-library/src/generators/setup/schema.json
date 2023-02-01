@@ -16,36 +16,39 @@
     "framework": {
       "type": "string",
       "description": "The framework to setup Testing Library for",
-      "x-prompts": [
-        {
-          "name": "framework",
-          "message": "Which framework do you want to setup Testing Library for?",
-          "type": "list",
-          "items": [
-            {
-              "name": "React",
-              "value": "react"
-            },
-            {
-              "name": "Angular",
-              "value": "angular"
-            },
-            {
-              "name": "Vue",
-              "value": "vue"
-            },
-            {
-              "name": "Svelte",
-              "value": "svelte"
-            },
-            {
-              "name": "Marko",
-              "value": "marko"
-            }
-          ]
-        }
-      ]
+      "x-prompt": {
+        "message": "Which framework do you want to setup Testing Library for?",
+        "type": "list",
+        "items": [
+          {
+            "label": "React",
+            "value": "react"
+          },
+          {
+            "label": "Angular",
+            "value": "angular"
+          },
+          {
+            "label": "Vue",
+            "value": "vue"
+          },
+          {
+            "label": "Svelte",
+            "value": "svelte"
+          },
+          {
+            "label": "Marko",
+            "value": "marko"
+          },
+          {
+            "label": "DOM",
+            "value": "dom"
+          }
+        ]
+      }
     }
   },
-  "required": []
+  "required": [
+    "framework"
+  ]
 }
