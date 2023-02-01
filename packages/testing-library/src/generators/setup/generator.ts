@@ -50,6 +50,7 @@ const frameworkSpecificDependencies: Record<
 export default async function (tree: Tree, options: SetupGeneratorSchema) {
   const normalizedOptions = normalizeOptions(tree, options);
 
+  // probably should read tsconfig.json and fetch the path to the test setup file
   const jestTestSetupFilename = `${normalizedOptions.projectRoot}/src/test-setup.ts`;
 
   tree.write(jestTestSetupFilename, `import '@testing-library/jest-dom';`);
@@ -59,6 +60,8 @@ export default async function (tree: Tree, options: SetupGeneratorSchema) {
     {},
     {
       'jest-environment-jsdom': 'latest',
+      '@types/testing-library__jest-dom': 'latest',
+      '@testing-library/jest-dom': 'latest',
       ...frameworkSpecificDependencies[options.framework],
     }
   );
