@@ -1,25 +1,25 @@
 {
-  "name": "angular-test-app",
+  "name": "test-angular-app",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "apps/angular-test-app/src",
+  "sourceRoot": "apps/test-angular-app/src",
   "prefix": "nx-toolkits",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/angular-test-app",
-        "index": "apps/angular-test-app/src/index.html",
-        "main": "apps/angular-test-app/src/main.ts",
+        "outputPath": "dist/apps/test-angular-app",
+        "index": "apps/test-angular-app/src/index.html",
+        "main": "apps/test-angular-app/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/angular-test-app/tsconfig.app.json",
+        "tsConfig": "apps/test-angular-app/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-          "apps/angular-test-app/src/favicon.ico",
-          "apps/angular-test-app/src/assets"
+          "apps/test-angular-app/src/favicon.ico",
+          "apps/test-angular-app/src/assets"
         ],
-        "styles": ["apps/angular-test-app/src/styles.scss"],
+        "styles": ["apps/test-angular-app/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -53,10 +53,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "angular-test-app:build:production"
+          "browserTarget": "test-angular-app:build:production"
         },
         "development": {
-          "browserTarget": "angular-test-app:build:development"
+          "browserTarget": "test-angular-app:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -64,7 +64,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "angular-test-app:build"
+        "browserTarget": "test-angular-app:build"
       }
     },
     "lint": {
@@ -72,8 +72,8 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "apps/angular-test-app/**/*.ts",
-          "apps/angular-test-app/**/*.html"
+          "apps/test-angular-app/**/*.ts",
+          "apps/test-angular-app/**/*.html"
         ]
       }
     },
@@ -81,7 +81,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/angular-test-app/jest.config.ts",
+        "jestConfig": "apps/test-angular-app/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
