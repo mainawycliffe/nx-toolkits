@@ -3,10 +3,10 @@
   "name": "testing-library",
   "version": "0.0.1",
   "generators": {
-    "setup": {
-      "factory": "./src/generators/setup/generator",
-      "schema": "./src/generators/setup/schema.json",
-      "description": "setup generator"
+    "ng-setup": {
+      "factory": "./src/generators/ng-setup/generator",
+      "schema": "./src/generators/ng-setup/schema.json",
+      "description": "ng-setup generator"
     }
   }
 }

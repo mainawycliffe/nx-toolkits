@@ -2,11 +2,11 @@ import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 import { Tree, readProjectConfiguration } from '@nrwl/devkit';
 
 import generator from './generator';
-import { SetupGeneratorSchema } from './schema';
+import { NgSetupGeneratorSchema } from './schema';
 
-describe('setup generator', () => {
+describe('ng-setup generator', () => {
   let appTree: Tree;
-  const options: SetupGeneratorSchema = { name: 'test' };
+  const options: NgSetupGeneratorSchema = { name: 'test' };
 
   beforeEach(() => {
     appTree = createTreeWithEmptyWorkspace();

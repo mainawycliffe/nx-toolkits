@@ -5,7 +5,7 @@ import {
   Tree,
   logger,
 } from '@nrwl/devkit';
-import { Framework, SetupGeneratorSchema } from './schema';
+import { SetupGeneratorSchema } from './schema';
 import { tsquery } from '@phenomnomnominal/tsquery';
 import { Node, SyntaxKind } from 'typescript';
 
@@ -26,34 +26,10 @@ function normalizeOptions(
   };
 }
 
-const frameworkSpecificDependencies: Record<
-  Framework,
-  Record<string, string>
-> = {
-  angular: {
-    '@testing-library/angular': 'latest',
-  },
-  react: {
-    '@testing-library/react': 'latest',
-  },
-  vue: {
-    '@testing-library/vue': 'latest',
-  },
-  marko: {
-    '@marko/testing-library': 'latest',
-  },
-  dom: {
-    '@testing-library/dom': 'latest',
-  },
-  preact: {
-    '@testing-library/preact': 'latest',
-  },
-};
-
 export default async function (tree: Tree, options: SetupGeneratorSchema) {
   const normalizedOptions = normalizeOptions(tree, options);
 
-  logger.info(`Setting up testing-library for ${options.framework}`);
+  logger.info(`Setting up testing-library for an Angular project`);
 
   // probably should read tsconfig.json and fetch the path to the test setup file
   const jestTestSetupFilename = `${normalizedOptions.projectRoot}/src/test-setup.ts`;
@@ -103,7 +79,7 @@ export default async function (tree: Tree, options: SetupGeneratorSchema) {
       'jest-environment-jsdom': 'latest',
       '@types/testing-library__jest-dom': 'latest',
       '@testing-library/jest-dom': 'latest',
-      ...frameworkSpecificDependencies[options.framework],
+      '@testing-library/angular': 'latest',
     }
   );
 
