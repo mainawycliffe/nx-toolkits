@@ -10,6 +10,7 @@ import {
   addJestDomImport,
   addSetupFileToJestConfig,
   addSetupFileToTsConfig,
+  isJestSetupForProject,
 } from '../../utils.ts/modifyFiles';
 import { NormalizedSchema } from '../../utils.ts/ProjectNormalizedOptions';
 
@@ -28,6 +29,13 @@ function normalizeOptions(
 
 export default async function (tree: Tree, options: ReactSetupGeneratorSchema) {
   const normalizedOptions = normalizeOptions(tree, options);
+
+  if (!isJestSetupForProject(tree, normalizedOptions)) {
+    logger.warn(
+      `Jest is not setup for project ${normalizedOptions.project}. Please run 'nx g @nrwl/jest:jest' first.`
+    );
+    return;
+  }
 
   logger.info(`Setting up testing-library for an React project`);
 

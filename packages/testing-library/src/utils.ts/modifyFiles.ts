@@ -4,11 +4,11 @@ import { SyntaxKind } from 'typescript';
 import { NormalizedSchema } from './ProjectNormalizedOptions';
 
 export function getSetupFileContent(tree: Tree, setupFilePath: string): string {
-  if (tree.exists(setupFilePath)) {
-    return tree.read(setupFilePath, 'utf-8');
+  if (!tree.exists(setupFilePath)) {
+    // create the file
+    tree.write(setupFilePath, `import '@testing-library/jest-dom';`);
   }
-  // create the file
-  tree.write(setupFilePath, `import '@testing-library/jest-dom';`);
+  return tree.read(setupFilePath, 'utf-8');
 }
 
 export function addJestDomImport(tree: Tree, setupFilePath: string): void {
@@ -129,11 +129,16 @@ export function addSetupFileToTsConfig(
     tsConfigJSON.files = [pathFromRoot];
   } else {
     // check if the setup file is already added
-    const setupFileExists = setupFiles.some((file) => file === setupFilePath);
+    const setupFileExists = setupFiles.some((file) => file === pathFromRoot);
     if (!setupFileExists) {
       tsConfigJSON.files = [...setupFiles, pathFromRoot];
     }
   }
-  console.log(tsConfigJSON);
   tree.write(tsConfigPath, JSON.stringify(tsConfigJSON, null, 2));
+}
+
+// TODO: add support for other test runners such as Vitest
+export function isJestSetupForProject(tree: Tree, options: NormalizedSchema) {
+  const jestConfigPath = `${options.projectRoot}/jest.config.ts`;
+  return tree.exists(jestConfigPath);
 }

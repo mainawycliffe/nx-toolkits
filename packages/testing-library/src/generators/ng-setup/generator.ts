@@ -6,7 +6,10 @@ import {
   logger,
 } from '@nrwl/devkit';
 import { SetupGeneratorSchema } from './schema';
-import { addJestDomImport } from '../../utils.ts/modifyFiles';
+import {
+  addJestDomImport,
+  isJestSetupForProject,
+} from '../../utils.ts/modifyFiles';
 
 interface NormalizedSchema extends SetupGeneratorSchema {
   projectRoot: string;
@@ -27,6 +30,13 @@ function normalizeOptions(
 
 export default async function (tree: Tree, options: SetupGeneratorSchema) {
   const normalizedOptions = normalizeOptions(tree, options);
+
+  if (!isJestSetupForProject(tree, normalizedOptions)) {
+    logger.warn(
+      `Jest is not setup for project ${normalizedOptions.project}. Please run 'nx g @nrwl/jest:jest' first.`
+    );
+    return;
+  }
 
   logger.info(`Setting up testing-library for an Angular project`);
 
