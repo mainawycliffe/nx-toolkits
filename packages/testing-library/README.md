@@ -75,3 +75,15 @@ describe('App', () => {
   });
 });
 ```
+
+## Roadmap
+
+- [x] Setup for Angular
+- [x] Setup for React
+- [ ] Verify framework setup - i.e. do not setup angular for react app
+- [ ] Setup for Vue
+- [ ] Setup for Svelte
+- [ ] Setup for Marko
+- [ ] Setup for Preact
+- [ ] Setup for Solid
+- [ ] Setup for major frameworks
