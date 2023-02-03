@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "testing-library",
+  "version": "0.0.1",
+  "generators": {
+    "ng-setup": {
+      "factory": "./src/generators/ng-setup/generator",
+      "schema": "./src/generators/ng-setup/schema.json",
+      "description": "ng-setup generator"
+    },
+    "react-setup": {
+      "factory": "./src/generators/react-setup/generator",
+      "schema": "./src/generators/react-setup/schema.json",
+      "description": "react-setup generator"
+    }
+  }
+}

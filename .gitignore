@@ -46,3 +46,5 @@ firebase.json
 # packages/functions
 firebase-debug.log
 ui-debug.log
+
+.angular
