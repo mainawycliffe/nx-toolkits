@@ -19,3 +19,59 @@ app repository approach, you can have multiple apps and libraries in a single
 repo. And set up testing library for each app and library can be a tedious
 and repetitive task. This setup will help you to setup testing library, complete
 with all required dependencies and helpers, for your NX apps and libraries.
+
+## How to use this setup?
+
+1. Install the package
+
+```bash
+npm install --save-dev @nx-toolkits/testing-library
+```
+
+2. Run the setup command
+
+```bash
+# For Angular
+nx g @nx-toolkits/testing-library:ng-setup
+
+# For React
+nx g @nx-toolkits/testing-library:react-setup
+```
+
+The second command is going to install all the required dependencies and setup
+the `@testing-library/jest-dom` extended matchers for Jest. Now you can start
+writing your tests.
+
+### Example - Angular
+
+```ts
+import { AppComponent } from './app.component';
+import { render, screen } from '@testing-library/angular';
+
+it('should render component correctly', async () => {
+  await render(AppComponent, {});
+
+  expect(
+    screen.queryByRole('heading', {
+      level: 1,
+    })
+  ).toBeInTheDocument();
+});
+```
+
+### Example - React
+
+```ts
+import { render, screen } from '@testing-library/react';
+
+import App from './app';
+
+describe('App', () => {
+  it('should have a greeting as the title', () => {
+    render(<App />);
+    expect(
+      screen.queryByRole('heading', { name: 'Welcome to test-react-app!' })
+    ).toBeInTheDocument();
+  });
+});
+```
