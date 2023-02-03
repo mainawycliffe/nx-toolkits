@@ -73,6 +73,7 @@
       "options": {
         "preset": "angular",
         "commitMessageFormat": "chore(${projectName}): release version ${version}",
+        "push": true,
         "skipCommitTypes": [
           "chore",
           "docs",
