@@ -46,7 +46,7 @@ export default async function (tree: Tree, options: ReactSetupGeneratorSchema) {
   addSetupFileToJestConfig(tree, normalizedOptions, jestTestSetupFilename);
   addSetupFileToTsConfig(tree, normalizedOptions, jestTestSetupFilename);
 
-  addDependenciesToPackageJson(
+  const install = addDependenciesToPackageJson(
     tree,
     {},
     {
@@ -56,6 +56,8 @@ export default async function (tree: Tree, options: ReactSetupGeneratorSchema) {
       '@testing-library/react': 'latest',
     }
   );
+
+  install();
 
   await formatFiles(tree);
 }

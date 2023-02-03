@@ -45,7 +45,7 @@ export default async function (tree: Tree, options: SetupGeneratorSchema) {
 
   addJestDomImport(tree, jestTestSetupFilename);
 
-  addDependenciesToPackageJson(
+  const install = addDependenciesToPackageJson(
     tree,
     {},
     {
@@ -55,6 +55,8 @@ export default async function (tree: Tree, options: SetupGeneratorSchema) {
       '@testing-library/angular': 'latest',
     }
   );
+
+  install();
 
   await formatFiles(tree);
 }
