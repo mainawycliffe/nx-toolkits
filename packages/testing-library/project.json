@@ -84,7 +84,8 @@
           "build",
           "ci",
           "revert"
-        ]
+        ],
+        "tagPrefix": "testing-library@"
       }
     }
   },

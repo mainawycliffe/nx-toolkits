@@ -1,14 +1,26 @@
-name: publish testing-library generator
+name: publish to npm
 
 on:
   push:
     tags:
-      - "testing-library-*"
+      - "firebase@*"
+      - "testing-library@*"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
+      # We want to get the tag name without the @version suffix, this is our
+      # package name
+      - uses: actions/github-script@v6
+        id: get-tag-name
+        env:
+          GIT_TAG_NAME: ${{ github.ref_name }}
+        with:
+          result-encoding: string
+          script: return process.env.GIT_TAG_NAME.split('@')[0]
+
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
@@ -18,7 +30,7 @@ jobs:
       # - uses: nrwl/nx-set-shas@v3
       #   id: nx-toolkit-nx-set-shas
       #   with:
-      #     workflow-id: 'publish testing-library generator'
+      #     workflow-id: 'publish firebase generator'
 
       - uses: pnpm/action-setup@v2
         name: Install pnpm
@@ -45,15 +57,15 @@ jobs:
         run: pnpm install
 
       - name: Build
-        run: pnpm nx run testing-library:build
+        run: pnpm nx run ${{ steps.get-tag-name.outputs.result }}:build
 
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "dist/packages/testing-library/*.*"
-          bodyFile: "packages/testing-library/CHANGELOG.md"
+          artifacts: dist/packages/${{ steps.get-tag-name.outputs.result }}/*.*
+          bodyFile: "packages/${{ steps.get-tag-name.outputs.result }}/CHANGELOG.md"
 
       - name: npm publish
-        run: npm publish dist/packages/testing-library --access public
+        run: npm publish dist/packages/${{ steps.get-tag-name.outputs.result }} --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
