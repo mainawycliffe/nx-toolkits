@@ -6,6 +6,7 @@ import {
   names,
   offsetFromRoot,
   Tree,
+  readProjectConfiguration,
 } from '@nrwl/devkit';
 import * as path from 'path';
 import { HostingGeneratorSchema } from './schema';
@@ -66,22 +67,26 @@ export default async function (tree: Tree, options: HostingGeneratorSchema) {
   // sites to the same project
   // For SSR, we will need Firebase Functions
 
-  updateProjectConfiguration(tree, normalizedOptions.projectName, {
-    root: normalizedOptions.projectRoot,
-    projectType: 'library',
-    sourceRoot: `${normalizedOptions.projectRoot}/src`,
-    targets: {
-      build: {
-        executor: '@nx-toolkits/firebase:build',
-      },
-      deploy: {
-        executor: '@nx-toolkits/firebase:deploy',
-        // always run the build target before deploying
-        dependsOn: ['build'],
-      },
-    },
-    tags: normalizedOptions.parsedTags,
-  });
+  const projectConfig = readProjectConfiguration(
+    tree,
+    normalizedOptions.projectName
+  );
+
+  const outputPath = projectConfig.targets.build.options.outputPath;
+
+  // we add a deploy target to the project
+  projectConfig.targets.deploy = {
+    command: 'firebase deploy --only hosting',
+    // always run the build target before deploying
+    dependsOn: ['build'],
+  };
+
+  updateProjectConfiguration(
+    tree,
+    normalizedOptions.projectName,
+    projectConfig
+  );
+
   addFiles(tree, normalizedOptions);
   await formatFiles(tree);
 }
