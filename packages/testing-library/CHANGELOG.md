@@ -2,6 +2,10 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.3](https://github.com/mainawycliffe/nx-toolkit/compare/testing-library@0.0.1...testing-library@0.1.3) (2023-02-04)
+
+
+
 ## 0.0.1 (2023-02-04)
 
 

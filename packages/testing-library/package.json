@@ -1,6 +1,6 @@
 {
   "name": "@nx-toolkits/testing-library",
-  "version": "0.0.1",
+  "version": "0.1.3",
   "description": "Nx setup plugin for testing library (Requires jest or test runner like vite to be installed)",
   "keywords": [
     "jest",
