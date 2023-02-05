@@ -8,6 +8,11 @@ export default function addFiles(tree: Tree, options: NormalizedSchema) {
     ...names(options.name),
     offsetFromRoot: offsetFromRoot(options.projectRoot),
     template: '',
+    baseTsConfigFile:
+      options.projectRoot
+        .split('/')
+        .map(() => '..')
+        .join('/') + '/tsconfig.base.json',
   };
   generateFiles(
     tree,
