@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.4.1](https://github.com/mainawycliffe/nx-toolkit/compare/firebase@0.4.0...firebase@0.4.1) (2023-02-07)
+
+
+### Bug Fixes
+
+* **firebase:** add esbuild to dependencies array ([dc02db0](https://github.com/mainawycliffe/nx-toolkit/commit/dc02db03501a821c0e803f4719bc628d5e350c83))
+
+
+
 # [0.4.0](https://github.com/mainawycliffe/nx-toolkit/compare/firebase@0.3.2...firebase@0.4.0) (2023-02-07)
 
 
