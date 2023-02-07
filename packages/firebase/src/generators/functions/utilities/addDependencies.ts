@@ -13,7 +13,7 @@ export default function addDependencies(tree: Tree) {
     },
     {
       'firebase-functions-test': '^3.0.0',
-      '@nrwl/js': nxWorkspaceVersion || 'latest',
+      '@nrwl/esbuild': nxWorkspaceVersion || 'latest',
     }
   );
 

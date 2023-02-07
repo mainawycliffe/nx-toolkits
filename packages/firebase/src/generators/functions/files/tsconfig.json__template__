@@ -1,8 +1,5 @@
 {
-  "compilerOptions": {
-    "target": "es2017"
-  },
-  "compileOnSave": true,
-  "include": ["src"],
+  "compilerOptions": {},
+  "include": ["src/**/*"],
   "extends": "<%= baseTsConfigFile %>"
 }

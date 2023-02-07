@@ -26,24 +26,28 @@ export default function addProjectConfigs(
         },
       },
       build: {
-        executor: '@nrwl/js:tsc',
-        dependsOn: ['lint'],
+        executor: '@nrwl/esbuild:esbuild',
+        outputs: ['{options.outputPath}'],
+        defaultConfiguration: 'production',
         options: {
-          outputPath: `dist/${normalizedOptions.projectRoot}`,
-          tsConfig: `${normalizedOptions.projectRoot}/tsconfig.json`,
           main: `${normalizedOptions.projectDirectory}/src/index.ts`,
-          buildableProjectDepsInPackageJsonType: 'dependencies', // use dependencies instead of peerDependencies
+          outputPath: `dist/${normalizedOptions.projectRoot}`,
+          outputFileName: 'index.js',
+          project: `${normalizedOptions.projectRoot}/package.json`,
+          tsConfig: `${normalizedOptions.projectRoot}/tsconfig.json`,
+          assets: [],
+          platform: 'node',
+          dependenciesFieldType: 'dependencies',
+          // do not bundle npm dependencies
+          thirdParty: false,
         },
-      },
-      watch: {
-        executor: '@nrwl/js:tsc',
-        dependsOn: ['lint'],
-        options: {
-          outputPath: `dist/${normalizedOptions.projectRoot}`,
-          tsConfig: `${normalizedOptions.projectRoot}/tsconfig.json`,
-          main: `${normalizedOptions.projectDirectory}/src/index.ts`,
-          buildableProjectDepsInPackageJsonType: 'dependencies', // use dependencies instead of peerDependencies
-          watch: true,
+        configurations: {
+          development: {
+            minify: false,
+          },
+          production: {
+            minify: true,
+          },
         },
       },
       serve: {
