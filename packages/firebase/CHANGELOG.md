@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [0.4.0](https://github.com/mainawycliffe/nx-toolkit/compare/firebase@0.3.2...firebase@0.4.0) (2023-02-07)
+
+
+### Features
+
+* move to esbuild for function bundler ([8a436a2](https://github.com/mainawycliffe/nx-toolkit/commit/8a436a2e3405665508fd59e7ba44153f1433b26e))
+
+
+
 ## [0.3.2](https://github.com/mainawycliffe/nx-toolkit/compare/firebase@0.3.1...firebase@0.3.2) (2023-02-05)
 
 
