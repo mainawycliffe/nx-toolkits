@@ -54,6 +54,6 @@ export default async function (tree: Tree, options: FirebaseGeneratorSchema) {
 
   await formatFiles(tree);
 
-  // install dependencies
-  addDependencies(tree);
+  // add dependencies for firebase functions
+  return addDependencies(tree);
 }

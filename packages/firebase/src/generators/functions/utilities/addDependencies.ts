@@ -5,7 +5,7 @@ export default function addDependencies(tree: Tree) {
   const nxWorkspaceVersion = JSON.parse(tree.read('package.json').toString())
     .devDependencies['@nrwl/workspace'];
 
-  const installDependencies = addDependenciesToPackageJson(
+  return addDependenciesToPackageJson(
     tree,
     {
       'firebase-admin': '^11.4.1',
@@ -17,7 +17,4 @@ export default function addDependencies(tree: Tree) {
       esbuild: '^0.15.7',
     }
   );
-
-  // install all dependencies
-  installDependencies();
 }
