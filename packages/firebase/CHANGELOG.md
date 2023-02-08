@@ -2,6 +2,16 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.4.2](https://github.com/mainawycliffe/nx-toolkit/compare/firebase@0.4.1...firebase@0.4.2) (2023-02-08)
+
+
+### Bug Fixes
+
+* **firebase:** fix nx not installing packages on generate ([fba1c37](https://github.com/mainawycliffe/nx-toolkit/commit/fba1c37c382df83263845757807173b37cc5c433))
+* **firebase:** fix undefined value when codebase not set ([d0dda8f](https://github.com/mainawycliffe/nx-toolkit/commit/d0dda8f9309f62d48ea574c4140465522847272c))
+
+
+
 ## [0.4.1](https://github.com/mainawycliffe/nx-toolkit/compare/firebase@0.4.0...firebase@0.4.1) (2023-02-07)
 
 
