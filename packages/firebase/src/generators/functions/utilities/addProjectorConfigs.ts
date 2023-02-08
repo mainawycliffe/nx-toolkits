@@ -10,7 +10,8 @@ export default function addProjectConfigs(
   // functions only.
   // Docs: https://firebase.google.com/docs/functions/beta/organize-functions
   const { codebase } = normalizedOptions;
-  const appendCodebase = codebase !== 'default' ? `:${codebase}` : '';
+  const appendCodebase =
+    codebase && codebase !== 'default' ? `:${codebase}` : '';
 
   addProjectConfiguration(tree, normalizedOptions.projectName, {
     root: normalizedOptions.projectRoot,
