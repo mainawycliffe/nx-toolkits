@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.4.3](https://github.com/mainawycliffe/nx-toolkit/compare/firebase@0.4.2...firebase@0.4.3) (2023-02-11)
+
+
+### Bug Fixes
+
+* **firebase:** fix incorrect project main in esbuild ([5d17737](https://github.com/mainawycliffe/nx-toolkit/commit/5d17737a871fed5d3cf83c2037724e0e11a0ef4e))
+
+
+
 ## [0.4.2](https://github.com/mainawycliffe/nx-toolkit/compare/firebase@0.4.1...firebase@0.4.2) (2023-02-08)
 
 
