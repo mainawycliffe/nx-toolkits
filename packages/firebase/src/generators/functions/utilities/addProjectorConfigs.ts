@@ -31,7 +31,7 @@ export default function addProjectConfigs(
         outputs: ['{options.outputPath}'],
         defaultConfiguration: 'production',
         options: {
-          main: `${normalizedOptions.projectDirectory}/src/index.ts`,
+          main: `${normalizedOptions.projectRoot}/src/index.ts`,
           outputPath: `dist/${normalizedOptions.projectRoot}`,
           outputFileName: 'index.js',
           project: `${normalizedOptions.projectRoot}/package.json`,
