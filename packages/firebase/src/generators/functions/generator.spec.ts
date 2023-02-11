@@ -53,7 +53,7 @@ describe('firebase generator', () => {
             "options": Object {
               "assets": Array [],
               "dependenciesFieldType": "dependencies",
-              "main": "test/src/index.ts",
+              "main": "./test/src/index.ts",
               "outputFileName": "index.js",
               "outputPath": "dist/./test",
               "platform": "node",
@@ -138,7 +138,7 @@ describe('firebase generator', () => {
             "options": Object {
               "assets": Array [],
               "dependenciesFieldType": "dependencies",
-              "main": "test/src/index.ts",
+              "main": "./test/src/index.ts",
               "outputFileName": "index.js",
               "outputPath": "dist/./test",
               "platform": "node",
