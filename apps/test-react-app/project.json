@@ -21,7 +21,8 @@
         ],
         "styles": ["apps/test-react-app/src/styles.css"],
         "scripts": [],
-        "webpackConfig": "apps/test-react-app/webpack.config.js"
+        "webpackConfig": "apps/test-react-app/webpack.config.js",
+        "babelUpwardRootMode": true
       },
       "configurations": {
         "development": {
