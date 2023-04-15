@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [0.5.0](https://github.com/mainawycliffe/nx-toolkit/compare/firebase@0.4.6...firebase@0.5.0) (2023-04-15)
+
+
+### Features
+
+* **firebase:** setup jest for generated firebase functions ([#38](https://github.com/mainawycliffe/nx-toolkit/issues/38)) ([9302c68](https://github.com/mainawycliffe/nx-toolkit/commit/9302c683403f072820a59262ea9c611e8c785950))
+
+
+
 ## [0.4.6](https://github.com/mainawycliffe/nx-toolkit/compare/firebase@0.4.5...firebase@0.4.6) (2023-03-29)
 
 
