@@ -83,6 +83,17 @@ describe('firebase generator', () => {
           "serve": Object {
             "command": "firebase emulators:start --only functions",
           },
+          "test": Object {
+            "executor": "@nrwl/jest:jest",
+            "options": Object {
+              "coverageDirectory": "coverage/./test",
+              "jestConfig": "./test/jest.config.ts",
+              "passWithNoTests": true,
+            },
+            "outputs": Array [
+              "coverage/./test",
+            ],
+          },
         },
       }
     `);
@@ -105,6 +116,7 @@ describe('firebase generator', () => {
       esbuild: expect.any(String),
       'firebase-functions-test': expect.any(String),
       '@nrwl/esbuild': expect.any(String),
+      '@nrwl/jest': expect.any(String),
     });
   });
 
@@ -167,6 +179,17 @@ describe('firebase generator', () => {
           },
           "serve": Object {
             "command": "firebase emulators:start --only functions",
+          },
+          "test": Object {
+            "executor": "@nrwl/jest:jest",
+            "options": Object {
+              "coverageDirectory": "coverage/./test",
+              "jestConfig": "./test/jest.config.ts",
+              "passWithNoTests": true,
+            },
+            "outputs": Array [
+              "coverage/./test",
+            ],
           },
         },
       }
