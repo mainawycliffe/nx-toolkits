@@ -26,6 +26,15 @@ export default function addProjectConfigs(
           fix: true,
         },
       },
+      test: {
+        executor: '@nrwl/jest:jest',
+        outputs: [`coverage/${normalizedOptions.projectRoot}`],
+        options: {
+          jestConfig: `${normalizedOptions.projectRoot}/jest.config.ts`,
+          passWithNoTests: true,
+          coverageDirectory: `coverage/${normalizedOptions.projectRoot}`,
+        },
+      },
       build: {
         executor: '@nrwl/esbuild:esbuild',
         outputs: ['{options.outputPath}'],
