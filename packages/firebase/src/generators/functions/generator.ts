@@ -1,4 +1,4 @@
-import { formatFiles, getWorkspaceLayout, names, Tree } from '@nrwl/devkit';
+import { formatFiles, getWorkspaceLayout, names, Tree } from '@nx/devkit';
 import { FirebaseGeneratorSchema, FirebaseNodeRuntimeVersion } from './schema';
 import addDependencies from './utilities/addDependencies';
 import addEslintConfigs from './utilities/addEslintConfigs';

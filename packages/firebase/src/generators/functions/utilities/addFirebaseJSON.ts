@@ -1,4 +1,4 @@
-import { detectPackageManager, Tree, writeJson } from '@nrwl/devkit';
+import { detectPackageManager, Tree, writeJson } from '@nx/devkit';
 import { NormalizedSchema } from '../generator';
 
 type FirebaseFunctionConfig = {

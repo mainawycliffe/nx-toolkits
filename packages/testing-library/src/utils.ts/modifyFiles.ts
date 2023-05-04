@@ -1,4 +1,4 @@
-import { logger, Tree } from '@nrwl/devkit';
+import { logger, Tree } from '@nx/devkit';
 import { tsquery } from '@phenomnomnominal/tsquery';
 import { SyntaxKind } from 'typescript';
 import { NormalizedSchema } from './ProjectNormalizedOptions';

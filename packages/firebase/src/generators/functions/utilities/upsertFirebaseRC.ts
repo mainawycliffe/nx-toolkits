@@ -1,4 +1,4 @@
-import { Tree, writeJson } from '@nrwl/devkit';
+import { Tree, writeJson } from '@nx/devkit';
 import { NormalizedSchema } from '../generator';
 
 export default function upsertFirebaseRC(

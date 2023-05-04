@@ -4,7 +4,7 @@ import {
   readProjectConfiguration,
   Tree,
   logger,
-} from '@nrwl/devkit';
+} from '@nx/devkit';
 import { SetupGeneratorSchema } from './schema';
 import {
   addJestDomImport,
@@ -33,7 +33,7 @@ export default async function (tree: Tree, options: SetupGeneratorSchema) {
 
   if (!isJestSetupForProject(tree, normalizedOptions)) {
     logger.warn(
-      `Jest is not setup for project ${normalizedOptions.project}. Please run 'nx g @nrwl/jest:jest' first.`
+      `Jest is not setup for project ${normalizedOptions.project}. Please run 'nx g @nx/jest:jest' first.`
     );
     return;
   }

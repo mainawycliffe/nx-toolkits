@@ -1,4 +1,4 @@
-import { addProjectConfiguration, Tree } from '@nrwl/devkit';
+import { addProjectConfiguration, Tree } from '@nx/devkit';
 import { NormalizedSchema } from '../generator';
 
 export default function addProjectConfigs(
@@ -19,7 +19,7 @@ export default function addProjectConfigs(
     sourceRoot: `${normalizedOptions.projectRoot}/src`,
     targets: {
       lint: {
-        executor: '@nrwl/linter:eslint',
+        executor: '@nx/linter:eslint',
         outputs: ['{options.outputFile}'],
         options: {
           lintFilePatterns: [`${normalizedOptions.projectRoot}/**/*.ts`],
@@ -27,7 +27,7 @@ export default function addProjectConfigs(
         },
       },
       test: {
-        executor: '@nrwl/jest:jest',
+        executor: '@nx/jest:jest',
         outputs: [`coverage/${normalizedOptions.projectRoot}`],
         options: {
           jestConfig: `${normalizedOptions.projectRoot}/jest.config.ts`,

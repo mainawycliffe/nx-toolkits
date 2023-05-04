@@ -1,4 +1,4 @@
-import { joinPathFragments, Tree, writeJson } from '@nrwl/devkit';
+import { joinPathFragments, Tree, writeJson } from '@nx/devkit';
 import { NormalizedSchema } from '../generator';
 
 export default function addEslintConfigs(

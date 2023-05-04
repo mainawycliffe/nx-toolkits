@@ -1,5 +1,5 @@
-import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
-import { Tree, readProjectConfiguration } from '@nrwl/devkit';
+import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing';
+import { Tree, readProjectConfiguration } from '@nx/devkit';
 
 import generator from './generator';
 import { FirebaseGeneratorSchema } from './schema';
@@ -69,7 +69,7 @@ describe('firebase generator', () => {
             "command": "firebase deploy --only functions",
           },
           "lint": Object {
-            "executor": "@nrwl/linter:eslint",
+            "executor": "@nx/linter:eslint",
             "options": Object {
               "fix": true,
               "lintFilePatterns": Array [
@@ -84,7 +84,7 @@ describe('firebase generator', () => {
             "command": "firebase emulators:start --only functions",
           },
           "test": Object {
-            "executor": "@nrwl/jest:jest",
+            "executor": "@nx/jest:jest",
             "options": Object {
               "coverageDirectory": "coverage/./test",
               "jestConfig": "./test/jest.config.ts",
@@ -116,7 +116,7 @@ describe('firebase generator', () => {
       esbuild: expect.any(String),
       'firebase-functions-test': expect.any(String),
       '@nrwl/esbuild': expect.any(String),
-      '@nrwl/jest': expect.any(String),
+      '@nx/jest': expect.any(String),
     });
   });
 
@@ -166,7 +166,7 @@ describe('firebase generator', () => {
             "command": "firebase deploy --only functions",
           },
           "lint": Object {
-            "executor": "@nrwl/linter:eslint",
+            "executor": "@nx/linter:eslint",
             "options": Object {
               "fix": true,
               "lintFilePatterns": Array [
@@ -181,7 +181,7 @@ describe('firebase generator', () => {
             "command": "firebase emulators:start --only functions",
           },
           "test": Object {
-            "executor": "@nrwl/jest:jest",
+            "executor": "@nx/jest:jest",
             "options": Object {
               "coverageDirectory": "coverage/./test",
               "jestConfig": "./test/jest.config.ts",
