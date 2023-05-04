@@ -31,27 +31,27 @@ describe('firebase generator', () => {
     await generator(appTree, { ...options, firebaseProject: 'test' });
     const config = readProjectConfiguration(appTree, 'test');
     expect(config).toMatchInlineSnapshot(`
-      Object {
+      {
         "$schema": "../node_modules/nx/schemas/project-schema.json",
         "name": "test",
         "projectType": "application",
         "root": "test",
         "sourceRoot": "./test/src",
-        "tags": Array [],
-        "targets": Object {
-          "build": Object {
-            "configurations": Object {
-              "development": Object {
+        "tags": [],
+        "targets": {
+          "build": {
+            "configurations": {
+              "development": {
                 "minify": false,
               },
-              "production": Object {
+              "production": {
                 "minify": true,
               },
             },
             "defaultConfiguration": "production",
             "executor": "@nrwl/esbuild:esbuild",
-            "options": Object {
-              "assets": Array [],
+            "options": {
+              "assets": [],
               "dependenciesFieldType": "dependencies",
               "main": "./test/src/index.ts",
               "outputFileName": "index.js",
@@ -61,36 +61,36 @@ describe('firebase generator', () => {
               "thirdParty": false,
               "tsConfig": "./test/tsconfig.json",
             },
-            "outputs": Array [
+            "outputs": [
               "{options.outputPath}",
             ],
           },
-          "deploy": Object {
+          "deploy": {
             "command": "firebase deploy --only functions",
           },
-          "lint": Object {
+          "lint": {
             "executor": "@nx/linter:eslint",
-            "options": Object {
+            "options": {
               "fix": true,
-              "lintFilePatterns": Array [
+              "lintFilePatterns": [
                 "./test/**/*.ts",
               ],
             },
-            "outputs": Array [
+            "outputs": [
               "{options.outputFile}",
             ],
           },
-          "serve": Object {
+          "serve": {
             "command": "firebase emulators:start --only functions",
           },
-          "test": Object {
+          "test": {
             "executor": "@nx/jest:jest",
-            "options": Object {
+            "options": {
               "coverageDirectory": "coverage/./test",
               "jestConfig": "./test/jest.config.ts",
               "passWithNoTests": true,
             },
-            "outputs": Array [
+            "outputs": [
               "coverage/./test",
             ],
           },
@@ -128,27 +128,27 @@ describe('firebase generator', () => {
     await generator(appTree, options);
     const config = readProjectConfiguration(appTree, 'test');
     expect(config).toMatchInlineSnapshot(`
-      Object {
+      {
         "$schema": "../node_modules/nx/schemas/project-schema.json",
         "name": "test",
         "projectType": "application",
         "root": "test",
         "sourceRoot": "./test/src",
-        "tags": Array [],
-        "targets": Object {
-          "build": Object {
-            "configurations": Object {
-              "development": Object {
+        "tags": [],
+        "targets": {
+          "build": {
+            "configurations": {
+              "development": {
                 "minify": false,
               },
-              "production": Object {
+              "production": {
                 "minify": true,
               },
             },
             "defaultConfiguration": "production",
             "executor": "@nrwl/esbuild:esbuild",
-            "options": Object {
-              "assets": Array [],
+            "options": {
+              "assets": [],
               "dependenciesFieldType": "dependencies",
               "main": "./test/src/index.ts",
               "outputFileName": "index.js",
@@ -158,36 +158,36 @@ describe('firebase generator', () => {
               "thirdParty": false,
               "tsConfig": "./test/tsconfig.json",
             },
-            "outputs": Array [
+            "outputs": [
               "{options.outputPath}",
             ],
           },
-          "deploy": Object {
+          "deploy": {
             "command": "firebase deploy --only functions",
           },
-          "lint": Object {
+          "lint": {
             "executor": "@nx/linter:eslint",
-            "options": Object {
+            "options": {
               "fix": true,
-              "lintFilePatterns": Array [
+              "lintFilePatterns": [
                 "./test/**/*.ts",
               ],
             },
-            "outputs": Array [
+            "outputs": [
               "{options.outputFile}",
             ],
           },
-          "serve": Object {
+          "serve": {
             "command": "firebase emulators:start --only functions",
           },
-          "test": Object {
+          "test": {
             "executor": "@nx/jest:jest",
-            "options": Object {
+            "options": {
               "coverageDirectory": "coverage/./test",
               "jestConfig": "./test/jest.config.ts",
               "passWithNoTests": true,
             },
-            "outputs": Array [
+            "outputs": [
               "coverage/./test",
             ],
           },
