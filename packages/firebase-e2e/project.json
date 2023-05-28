@@ -5,11 +5,12 @@
   "sourceRoot": "packages/firebase-e2e/src",
   "targets": {
     "e2e": {
-      "executor": "@nx/plugin:e2e",
+      "executor": "@nx/jest:jest",
       "options": {
-        "target": "firebase:build",
-        "jestConfig": "packages/firebase-e2e/jest.config.ts"
-      }
+        "jestConfig": "packages/firebase-e2e/jest.config.ts",
+        "runInBand": true
+      },
+      "dependsOn": ["firebase:build"]
     }
   },
   "tags": [],

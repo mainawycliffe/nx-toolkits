@@ -5,11 +5,12 @@
   "sourceRoot": "packages/testing-library-e2e/src",
   "targets": {
     "e2e": {
-      "executor": "@nx/plugin:e2e",
+      "executor": "@nx/jest:jest",
       "options": {
-        "target": "testing-library:build",
-        "jestConfig": "packages/testing-library-e2e/jest.config.ts"
-      }
+        "jestConfig": "packages/testing-library-e2e/jest.config.ts",
+        "runInBand": true
+      },
+      "dependsOn": ["testing-library:build"]
     }
   },
   "tags": [],
