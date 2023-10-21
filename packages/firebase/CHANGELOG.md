@@ -2,6 +2,29 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.3.1](https://github.com/mainawycliffe/nx-toolkit/compare/firebase-0.3.0...firebase-0.3.1) (2023-10-21)
+
+
+### Bug Fixes
+
+* **firebase:** add base tsconfig file functions tsconfig ([14fbc95](https://github.com/mainawycliffe/nx-toolkit/commit/14fbc959da20994db299de3fedf25ac15e05ac3c))
+* **firebase:** add esbuild to dependencies array ([dc02db0](https://github.com/mainawycliffe/nx-toolkit/commit/dc02db03501a821c0e803f4719bc628d5e350c83))
+* **firebase:** fix incorrect project main in esbuild ([5d17737](https://github.com/mainawycliffe/nx-toolkit/commit/5d17737a871fed5d3cf83c2037724e0e11a0ef4e))
+* **firebase:** fix nx not installing packages on generate ([fba1c37](https://github.com/mainawycliffe/nx-toolkit/commit/fba1c37c382df83263845757807173b37cc5c433))
+* **firebase:** fix undefined value when codebase not set ([d0dda8f](https://github.com/mainawycliffe/nx-toolkit/commit/d0dda8f9309f62d48ea574c4140465522847272c))
+
+
+### Features
+
+* **firebase:** setup jest for generated firebase functions ([#38](https://github.com/mainawycliffe/nx-toolkit/issues/38)) ([9302c68](https://github.com/mainawycliffe/nx-toolkit/commit/9302c683403f072820a59262ea9c611e8c785950))
+* move to esbuild for function bundler ([8a436a2](https://github.com/mainawycliffe/nx-toolkit/commit/8a436a2e3405665508fd59e7ba44153f1433b26e))
+
+
+
+## [0.6.2](https://github.com/mainawycliffe/nx-toolkit/compare/firebase@0.6.1...firebase@0.6.2) (2023-10-21)
+
+
+
 ## [0.6.1](https://github.com/mainawycliffe/nx-toolkit/compare/firebase@0.6.0...firebase@0.6.1) (2023-07-02)
 
 
