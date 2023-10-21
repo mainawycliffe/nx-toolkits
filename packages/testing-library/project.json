@@ -66,21 +66,7 @@
     "version": {
       "executor": "@jscutlery/semver:version",
       "options": {
-        "preset": "angular",
-        "commitMessageFormat": "chore(${projectName}): release version ${version}",
-        "push": true,
-        "skipCommitTypes": [
-          "chore",
-          "docs",
-          "style",
-          "refactor",
-          "perf",
-          "test",
-          "build",
-          "ci",
-          "revert"
-        ],
-        "tagPrefix": "testing-library@"
+        "preset": "conventional"
       }
     }
   },

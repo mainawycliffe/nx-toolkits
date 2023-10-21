@@ -60,20 +60,7 @@
     "version": {
       "executor": "@jscutlery/semver:version",
       "options": {
-        "preset": "angular",
-        "commitMessageFormat": "chore(${projectName}): release version ${version}",
-        "skipCommitTypes": [
-          "chore",
-          "docs",
-          "style",
-          "refactor",
-          "perf",
-          "test",
-          "build",
-          "ci",
-          "revert"
-        ],
-        "tagPrefix": "firebase@"
+        "preset": "conventional"
       }
     }
   },
