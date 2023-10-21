@@ -19,7 +19,7 @@ export default function addProjectConfigs(
     sourceRoot: `${normalizedOptions.projectRoot}/src`,
     targets: {
       lint: {
-        executor: '@nx/linter:eslint',
+        executor: '@nx/eslint:eslint',
         outputs: ['{options.outputFile}'],
         options: {
           lintFilePatterns: [`${normalizedOptions.projectRoot}/**/*.ts`],

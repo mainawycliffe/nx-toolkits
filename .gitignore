@@ -48,3 +48,5 @@ firebase-debug.log
 ui-debug.log
 
 .angular
+
+.nx/cache
