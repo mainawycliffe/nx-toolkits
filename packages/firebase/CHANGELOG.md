@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.7.0](https://github.com/mainawycliffe/nx-toolkit/compare/firebase@0.6.2...firebase@0.7.0) (2023-11-07)
+
+
+### Features
+
+* **firebase:** add support for node 20 preview ([0ad1cba](https://github.com/mainawycliffe/nx-toolkit/commit/0ad1cbae1e2dd1d8192bb1607425f5e44d134862))
+
 ### [0.6.2](https://github.com/mainawycliffe/nx-toolkit/compare/firebase@0.6.1...firebase@0.6.2) (2023-10-21)
 
 ### [0.3.2](https://github.com/mainawycliffe/nx-toolkit/compare/firebase-0.3.1...firebase-0.3.2) (2023-10-21)
