@@ -69,7 +69,7 @@ describe('firebase generator', () => {
             "command": "firebase deploy --only functions",
           },
           "lint": {
-            "executor": "@nx/eslint:eslint",
+            "executor": "@nx/eslint:lint",
             "options": {
               "fix": true,
               "lintFilePatterns": [
@@ -166,7 +166,7 @@ describe('firebase generator', () => {
             "command": "firebase deploy --only functions",
           },
           "lint": {
-            "executor": "@nx/eslint:eslint",
+            "executor": "@nx/eslint:lint",
             "options": {
               "fix": true,
               "lintFilePatterns": [
