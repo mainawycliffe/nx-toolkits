@@ -38,22 +38,13 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": [
-          "packages/firebase/**/*.ts",
-          "packages/firebase/generators.json",
-          "packages/firebase/executors.json",
-          "packages/firebase/package.json"
-        ]
-      }
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "packages/firebase/jest.config.ts",
-        "passWithNoTests": true
+        "jestConfig": "packages/firebase/jest.config.ts"
       }
     },
     "version": {
