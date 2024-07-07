@@ -50,6 +50,8 @@ export default function addProjectConfigs(
           dependenciesFieldType: 'dependencies',
           // do not bundle npm dependencies
           thirdParty: false,
+          // generate package.json file with dependencies
+          generatePackageJson: true,
         },
         configurations: {
           development: {
