@@ -1,6 +1,6 @@
 {
   "name": "@nx-toolkits/firebase",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "description": "Nx generator plugin for Firebase",
   "keywords": [
     "firebase",

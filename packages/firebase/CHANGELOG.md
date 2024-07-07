@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.7.6](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.7.5...firebase@0.7.6) (2024-07-07)
+
+
+### Bug Fixes
+
+* update firebase dependencies to the latest version ([7a81455](https://github.com/mainawycliffe/nx-toolkits/commit/7a814550c93d5312368af49f15987b0f89725d60))
+
 ## [0.7.5](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.7.4...firebase@0.7.5) (2024-07-07)
 
 ### [0.7.4](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.7.3...firebase@0.7.4) (2024-07-07)
