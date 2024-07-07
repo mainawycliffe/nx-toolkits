@@ -9,7 +9,7 @@ export default function addDependencies(tree: Tree) {
     tree,
     {
       'firebase-admin': '^12.0.0',
-      'firebase-functions': '^4.8.1',
+      'firebase-functions': '^5.0.0',
     },
     {
       'firebase-functions-test': '^3.1.1',
