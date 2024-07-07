@@ -33,6 +33,25 @@
       "description": "Firebase functions codebase",
       "default": "default"
     },
+    "runtime": {
+      "type": "string",
+      "description": "Firebase functions runtime e.g. Typescript or Python",
+      "default": "nodejs",
+      "x-prompt": {
+        "message": "What runtime would you like to use?",
+        "type": "list",
+        "items": [
+          {
+            "value": "nodejs",
+            "label": "Node.js"
+          },
+          {
+            "value": "python",
+            "label": "Python"
+          }
+        ]
+      }
+    },
     "nodeVersion": {
       "type": "string",
       "description": "Firebase functions node runtime version e.g. 14, 16, 18 and 20",
