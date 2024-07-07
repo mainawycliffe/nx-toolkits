@@ -50,3 +50,4 @@ ui-debug.log
 .angular
 
 .nx/cache
+.nx/workspace-data
