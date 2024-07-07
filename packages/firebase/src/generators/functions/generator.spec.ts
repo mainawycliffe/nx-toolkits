@@ -1,5 +1,5 @@
-import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing';
 import { Tree, readProjectConfiguration } from '@nx/devkit';
+import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing';
 
 import generator from './generator';
 import { FirebaseGeneratorSchema } from './schema';
@@ -53,6 +53,7 @@ describe('firebase generator', () => {
             "options": {
               "assets": [],
               "dependenciesFieldType": "dependencies",
+              "generatePackageJson": true,
               "main": "./test/src/index.ts",
               "outputFileName": "index.js",
               "outputPath": "dist/./test",
@@ -115,7 +116,7 @@ describe('firebase generator', () => {
     expect(packageJson.devDependencies).toStrictEqual({
       esbuild: expect.any(String),
       'firebase-functions-test': expect.any(String),
-      '@nrwl/esbuild': expect.any(String),
+      '@nx/esbuild': expect.any(String),
       '@nx/jest': expect.any(String),
     });
   });
@@ -150,6 +151,7 @@ describe('firebase generator', () => {
             "options": {
               "assets": [],
               "dependenciesFieldType": "dependencies",
+              "generatePackageJson": true,
               "main": "./test/src/index.ts",
               "outputFileName": "index.js",
               "outputPath": "dist/./test",
