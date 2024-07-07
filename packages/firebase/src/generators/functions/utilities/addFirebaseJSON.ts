@@ -29,6 +29,14 @@ export default function addFirebaseJSON(tree: Tree, options: NormalizedSchema) {
     ignore: [
       'node_modules',
       '.git',
+      // As of now, Firebase functions doesn't support multiple package
+      // managers, so let's not upload for deployment, as it will fail. If you
+      // are using a different package manager, for now, you can configure
+      // manually after generating the project.
+      'package-lock.json',
+      'pnpm-lock.yaml',
+      'yarn.lock',
+      'bun.lockb',
       'firebase-debug.log',
       'firebase-debug.*.log',
     ],
@@ -36,6 +44,7 @@ export default function addFirebaseJSON(tree: Tree, options: NormalizedSchema) {
       // let's use the nx cli to run the linting and building, build depends on
       // lint, so we don't need to run lint first
       `${commandToRunNX} nx run ${options.projectName}:build`,
+      "echo 'Functions built successfully.'",
     ],
   };
 
