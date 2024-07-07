@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.7.4](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.7.3...firebase@0.7.4) (2024-07-07)
+
+
+### Bug Fixes
+
+* fix pnpm and other package managers failing for firebase functions ([81b965e](https://github.com/mainawycliffe/nx-toolkits/commit/81b965e6c54912d42bffd36ff1de25166a0ba218))
+* generate package json for firebase functions ([840b284](https://github.com/mainawycliffe/nx-toolkits/commit/840b284c0f7251a3b783d481866f1f1b44161894))
+
 ### [0.7.3](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.7.2...firebase@0.7.3) (2024-03-22)
 
 ### [0.7.2](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.7.1...firebase@0.7.2) (2024-03-22)
