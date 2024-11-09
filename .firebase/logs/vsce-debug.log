@@ -11,3 +11,37 @@
 [info] [Firebase Plugin] Checked firebase-tools, is up to date!
 [debug] [2024-11-09T09:03:14.555Z] 'fdc build' failed with error: Unable to build your Data Connect schema and connectors (exit code 1): E1109 12:03:14.550688   41269 cmd.go:41] Error loading data connect config: could not find dataconnect.yaml in `/Users/mainawycliffe/projects/nx-toolkits/dataconnect`
  {"metadata":{"emulator":{"name":"dataconnect"},"message":"'fdc build' failed with error: Unable to build your Data Connect schema and connectors (exit code 1): E1109 12:03:14.550688   41269 cmd.go:41] Error loading data connect config: could not find dataconnect.yaml in `/Users/mainawycliffe/projects/nx-toolkits/dataconnect`\n"}}
+[debug] [2024-11-09T09:45:51.381Z] [Firebase Plugin] Value of process.env.MONOSPACE_ENV: undefined
+[debug] [2024-11-09T09:45:51.382Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2024-11-09T09:45:51.383Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-09T09:45:51.383Z] > authorizing via signed-in user (wmmaina7@gmail.com)
+[debug] [2024-11-09T09:45:51.384Z] Checked if tokens are valid: false, expires at: 1731143948931
+[debug] [2024-11-09T09:45:51.384Z] Checked if tokens are valid: false, expires at: 1731143948931
+[debug] [2024-11-09T09:45:51.384Z] > refreshing access token with scopes: []
+[debug] [2024-11-09T09:45:51.385Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-11-09T09:45:51.385Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-11-09T09:45:51.387Z] [Firebase Plugin] Value of process.env.MONOSPACE_ENV: undefined
+[debug] [2024-11-09T09:45:51.387Z] [Firebase Plugin] requireAuthWrapper
+[debug] [2024-11-09T09:45:51.387Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-11-09T09:45:51.388Z] > authorizing via signed-in user (wmmaina7@gmail.com)
+[debug] [2024-11-09T09:45:51.388Z] Checked if tokens are valid: false, expires at: 1731143948931
+[debug] [2024-11-09T09:45:51.388Z] Checked if tokens are valid: false, expires at: 1731143948931
+[debug] [2024-11-09T09:45:51.388Z] > refreshing access token with scopes: []
+[debug] [2024-11-09T09:45:51.388Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-11-09T09:45:51.388Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-11-09T09:45:51.721Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-11-09T09:45:51.721Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-11-09T09:45:51.734Z] [Firebase Plugin] User found:  wmmaina7@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2024-11-09T09:45:51.734Z] Checked if tokens are valid: true, expires at: 1731149150722
+[debug] [2024-11-09T09:45:51.735Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2024-11-09T09:45:51.735Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-11-09T09:45:51.735Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-11-09T09:45:51.744Z] [Firebase Plugin] User found:  wmmaina7@gmail.com
+[info] [Firebase Plugin] (Core:Project) New user detected, fetching projects
+[debug] [2024-11-09T09:45:51.744Z] Checked if tokens are valid: true, expires at: 1731149150736
+[debug] [2024-11-09T09:45:51.744Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=1000
+[debug] [2024-11-09T09:45:52.452Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-11-09T09:45:52.453Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[debug] [2024-11-09T09:45:52.966Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-11-09T09:45:52.966Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]

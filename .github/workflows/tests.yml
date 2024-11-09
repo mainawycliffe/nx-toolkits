@@ -2,9 +2,12 @@ name: publish to npm
 
 on:
   push:
-    tags:
-      - 'firebase@*'
-      - 'testing-library@*'
+    # main:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
@@ -56,10 +59,10 @@ jobs:
         run: pnpm install
 
       - name: Lint
-        run: pnpm nx run ${{ steps.get-tag-name.outputs.result }}:lint
+        run: pnpm nx affected -t lint
 
       - name: Test
-        run: pnpm nx run ${{ steps.get-tag-name.outputs.result }}:test
+        run: pnpm nx affected -t test
 
       - name: Build
-        run: pnpm nx run ${{ steps.get-tag-name.outputs.result }}:build
+        run: pnpm nx affected -t build
