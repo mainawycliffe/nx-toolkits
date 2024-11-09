@@ -49,7 +49,7 @@ describe('firebase generator', () => {
               },
             },
             "defaultConfiguration": "production",
-            "executor": "@nrwl/esbuild:esbuild",
+            "executor": "@nx/esbuild:esbuild",
             "options": {
               "assets": [],
               "dependenciesFieldType": "dependencies",
@@ -147,7 +147,7 @@ describe('firebase generator', () => {
               },
             },
             "defaultConfiguration": "production",
-            "executor": "@nrwl/esbuild:esbuild",
+            "executor": "@nx/esbuild:esbuild",
             "options": {
               "assets": [],
               "dependenciesFieldType": "dependencies",

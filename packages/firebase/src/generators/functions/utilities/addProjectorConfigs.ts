@@ -36,7 +36,7 @@ export default function addProjectConfigs(
         },
       },
       build: {
-        executor: '@nrwl/esbuild:esbuild',
+        executor: '@nx/esbuild:esbuild',
         outputs: ['{options.outputPath}'],
         defaultConfiguration: 'production',
         options: {

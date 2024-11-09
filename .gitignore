@@ -51,3 +51,4 @@ ui-debug.log
 
 .nx/cache
 .nx/workspace-data
+.firebase/logs/vsce-debug.log
