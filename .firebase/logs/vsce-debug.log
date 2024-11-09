@@ -1,0 +1,13 @@
+[debug] [2024-11-09T00:52:54.968Z] [Firebase Plugin] Activating Firebase extension.
+[info] [Firebase Plugin] Checked firebase-tools, is up to date!
+[info] i  dataconnect: downloading dataconnect-emulator-1.6.1... {"metadata":{"emulator":{"name":"dataconnect"},"message":"downloading dataconnect-emulator-1.6.1..."}}
+[debug] [2024-11-09T00:52:58.251Z] >>> [apiv2][query] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-macos-v1.6.1 
+[debug] [2024-11-09T00:52:58.821Z] <<< [apiv2][status] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-macos-v1.6.1 200
+[debug] [2024-11-09T00:52:58.822Z] <<< [apiv2][body] GET https://storage.googleapis.com/firemat-preview-drop/emulator/dataconnect-emulator-macos-v1.6.1 [stream]
+[info] i  dataconnect: Removing outdated emulator files: dataconnect-emulator-1.5.1 {"metadata":{"emulator":{"name":"dataconnect"},"message":"Removing outdated emulator files: dataconnect-emulator-1.5.1"}}
+[debug] [2024-11-09T00:53:04.573Z] 'fdc build' failed with error: Unable to build your Data Connect schema and connectors (exit code 1): E1109 03:53:04.569387   30318 cmd.go:41] Error loading data connect config: could not find dataconnect.yaml in `/Users/mainawycliffe/projects/nx-toolkits/dataconnect`
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"'fdc build' failed with error: Unable to build your Data Connect schema and connectors (exit code 1): E1109 03:53:04.569387   30318 cmd.go:41] Error loading data connect config: could not find dataconnect.yaml in `/Users/mainawycliffe/projects/nx-toolkits/dataconnect`\n"}}
+[debug] [2024-11-09T09:03:12.543Z] [Firebase Plugin] Activating Firebase extension.
+[info] [Firebase Plugin] Checked firebase-tools, is up to date!
+[debug] [2024-11-09T09:03:14.555Z] 'fdc build' failed with error: Unable to build your Data Connect schema and connectors (exit code 1): E1109 12:03:14.550688   41269 cmd.go:41] Error loading data connect config: could not find dataconnect.yaml in `/Users/mainawycliffe/projects/nx-toolkits/dataconnect`
+ {"metadata":{"emulator":{"name":"dataconnect"},"message":"'fdc build' failed with error: Unable to build your Data Connect schema and connectors (exit code 1): E1109 12:03:14.550688   41269 cmd.go:41] Error loading data connect config: could not find dataconnect.yaml in `/Users/mainawycliffe/projects/nx-toolkits/dataconnect`\n"}}
