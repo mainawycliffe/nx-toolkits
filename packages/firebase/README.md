@@ -27,15 +27,15 @@ This will generate a Firebase Functions app in the `apps` folder.
 
 #### Generator Options
 
-| Option              | alias       | Description                                                                                                                  |
-| ------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `--name`            |             | The name of the nx app to create.                                                                                            |
-| `--firebaseProject` | `--project` | The Firebase project to connect to.                                                                                          |
-| `--codebase`        |             | The codebase to use. Learn more [here](https://firebase.googlecom/docs/functions/organize-functions) about Firebase Codebase |
-| `--nodeVersion`     |             | The runtime node version to use on firebase functions.                                                                       |
-| `--directory`       |             | The directory to create the app in.                                                                                          |
-| `--tags`            |             | Tags to add to the app.                                                                                                      |
-| `--dry-run`         |             | Run through without making changes.                                                                                          |
+| Option              | alias       | Description                                                                                                                                                                                       |
+| ------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--name`            |             | The name of the nx app to create.                                                                                                                                                                 |
+| `--firebaseProject` | `--project` | The Firebase project to connect to.                                                                                                                                                               |
+| `--codebase`        |             | The codebase to use, allowing you to organize firebase functions according to your needs. Learn more [here](https://firebase.googlecom/docs/functions/organize-functions) about Firebase Codebase |
+| `--nodeVersion`     |             | The runtime node version to use on firebase functions.                                                                                                                                            |
+| `--directory`       |             | The directory to create the app in.                                                                                                                                                               |
+| `--tags`            |             | Tags to add to the app.                                                                                                                                                                           |
+| `--dry-run`         |             | Run through without making changes.                                                                                                                                                               |
 
 ### Deploy a Firebase Functions app
 
