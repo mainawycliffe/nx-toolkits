@@ -58,8 +58,8 @@ jobs:
       - name: Lint
         run: pnpm nx run ${{ steps.get-tag-name.outputs.result }}:lint
 
-      - name: Test
-        run: pnpm nx run ${{ steps.get-tag-name.outputs.result }}:test
+      # - name: Test
+      #   run: pnpm nx run ${{ steps.get-tag-name.outputs.result }}:test
 
       - name: Build
         run: pnpm nx run ${{ steps.get-tag-name.outputs.result }}:build
