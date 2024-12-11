@@ -2,6 +2,8 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.7.8](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.7.7...firebase@0.7.8) (2024-12-11)
+
 ## [0.7.7](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.7.6...firebase@0.7.7) (2024-11-09)
 
 ## [0.7.6](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.7.5...firebase@0.7.6) (2024-07-07)
