@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.8.0](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.7.8...firebase@0.8.0) (2025-01-02)
+
+
+### Features
+
+* **firebase:** add support for node 22, deprecate 14 & 18 ([dc7e7fe](https://github.com/mainawycliffe/nx-toolkits/commit/dc7e7fee53f904e2fa71389e339ec78a0836898c))
+
 ## [0.7.8](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.7.7...firebase@0.7.8) (2024-12-11)
 
 ## [0.7.7](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.7.6...firebase@0.7.7) (2024-11-09)
