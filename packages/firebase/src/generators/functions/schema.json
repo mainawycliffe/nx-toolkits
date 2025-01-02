@@ -35,19 +35,19 @@
     },
     "nodeVersion": {
       "type": "string",
-      "description": "Firebase functions node runtime version e.g. 14, 16, 18 and 20",
-      "default": "18",
+      "description": "Firebase functions node runtime version e.g. 14, 16, 18, 20 or 22",
+      "default": "20",
       "x-prompt": {
         "message": "What node runtime version would you like to use?",
         "type": "list",
         "items": [
           {
             "value": "14",
-            "label": "Node 14"
+            "label": "Node 14 (deprecated)"
           },
           {
             "value": "16",
-            "label": "Node 16"
+            "label": "Node 16 (deprecated)"
           },
           {
             "value": "18",
@@ -55,7 +55,11 @@
           },
           {
             "value": "20",
-            "label": "Node 20 (Preview)"
+            "label": "Node 20"
+          },
+          {
+            "value": "22",
+            "label": "Node 22 (preview)"
           }
         ]
       }
