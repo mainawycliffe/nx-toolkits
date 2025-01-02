@@ -45,7 +45,7 @@ You can deploy a Firebase Functions app using the `nx run deploy` command:
 nx run my-functions-app:deploy
 ```
 
-The above with run linting, building, and then deploy the app to Firebase.
+The above command with run linting, building, and then deploy the app to Firebase.
 
 You can also use firebase cli to deploy the app, just like you would normally do:
 
