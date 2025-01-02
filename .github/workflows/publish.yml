@@ -63,3 +63,14 @@ jobs:
 
       - name: Build
         run: pnpm nx run ${{ steps.get-tag-name.outputs.result }}:build
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1.14.0
+        with:
+          artifacts: dist/packages/${{ steps.get-tag-name.outputs.result }}/*.*
+          bodyFile: 'packages/${{ steps.get-tag-name.outputs.result }}/CHANGELOG.md'
+
+      - name: npm publish
+        run: npm publish dist/packages/${{ steps.get-tag-name.outputs.result }} --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
