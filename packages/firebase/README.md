@@ -13,7 +13,7 @@ npm install -D @nx-toolkits/firebase
 We generate a Firebase Functions app using the `@nx-toolkits/firebase:functions` and
 connect it to the Firebase project using the `--project` option. This allows for
 normal firebase cli commands to be used to work, as if it was an app generated
-using firebase cli.
+using firebase cli, but with the added benefits of Nx.
 
 ### Generate a Firebase Functions app
 
