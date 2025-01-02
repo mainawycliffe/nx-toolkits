@@ -47,7 +47,7 @@ nx run my-functions-app:deploy
 
 The above with run linting, building, and then deploy the app to Firebase.
 
-You can also use firebase-tools to deploy the app:
+You can also use firebase cli to deploy the app, just like you would normally do:
 
 ```bash
 firebase deploy --only functions
