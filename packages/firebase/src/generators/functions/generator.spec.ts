@@ -15,28 +15,16 @@ describe('firebase generator', () => {
     appTree = createTreeWithEmptyWorkspace();
   });
 
-  it("should throw an error if firebase project isn't defined", async () => {
-    await expect(generator(appTree, { ...options, firebaseProject: undefined }))
-      .rejects.toThrowErrorMatchingInlineSnapshot(`
-      "Firebase project has not been initialized.
-
-      Please run firebase init first or provide the firebase project id (--firebase flag) as an option to the generator.
-
-      You can find the firebase project id in the firebase console or by running firebase project:list.
-      "
-    `);
-  });
-
   it('should run successfully if firebase project is defined', async () => {
-    await generator(appTree, { ...options, firebaseProject: 'test' });
+    await generator(appTree, { ...options });
     const config = readProjectConfiguration(appTree, 'test');
     expect(config).toMatchInlineSnapshot(`
       {
-        "$schema": "../node_modules/nx/schemas/project-schema.json",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
         "name": "test",
         "projectType": "application",
-        "root": "test",
-        "sourceRoot": "./test/src",
+        "root": "apps/test",
+        "sourceRoot": "apps/test/src",
         "tags": [],
         "targets": {
           "build": {
@@ -54,13 +42,13 @@ describe('firebase generator', () => {
               "assets": [],
               "dependenciesFieldType": "dependencies",
               "generatePackageJson": true,
-              "main": "./test/src/index.ts",
+              "main": "apps/test/src/index.ts",
               "outputFileName": "index.js",
-              "outputPath": "dist/./test",
+              "outputPath": "dist/apps/test",
               "platform": "node",
-              "project": "./test/package.json",
+              "project": "apps/test/package.json",
               "thirdParty": false,
-              "tsConfig": "./test/tsconfig.json",
+              "tsConfig": "apps/test/tsconfig.json",
             },
             "outputs": [
               "{options.outputPath}",
@@ -74,7 +62,7 @@ describe('firebase generator', () => {
             "options": {
               "fix": true,
               "lintFilePatterns": [
-                "./test/**/*.ts",
+                "apps/test/**/*.ts",
               ],
             },
             "outputs": [
@@ -87,12 +75,12 @@ describe('firebase generator', () => {
           "test": {
             "executor": "@nx/jest:jest",
             "options": {
-              "coverageDirectory": "coverage/./test",
-              "jestConfig": "./test/jest.config.ts",
+              "coverageDirectory": "coverage/apps/test",
+              "jestConfig": "apps/test/jest.config.ts",
               "passWithNoTests": true,
             },
             "outputs": [
-              "coverage/./test",
+              "coverage/apps/test",
             ],
           },
         },
@@ -130,11 +118,11 @@ describe('firebase generator', () => {
     const config = readProjectConfiguration(appTree, 'test');
     expect(config).toMatchInlineSnapshot(`
       {
-        "$schema": "../node_modules/nx/schemas/project-schema.json",
+        "$schema": "../../node_modules/nx/schemas/project-schema.json",
         "name": "test",
         "projectType": "application",
-        "root": "test",
-        "sourceRoot": "./test/src",
+        "root": "apps/test",
+        "sourceRoot": "apps/test/src",
         "tags": [],
         "targets": {
           "build": {
@@ -152,13 +140,13 @@ describe('firebase generator', () => {
               "assets": [],
               "dependenciesFieldType": "dependencies",
               "generatePackageJson": true,
-              "main": "./test/src/index.ts",
+              "main": "apps/test/src/index.ts",
               "outputFileName": "index.js",
-              "outputPath": "dist/./test",
+              "outputPath": "dist/apps/test",
               "platform": "node",
-              "project": "./test/package.json",
+              "project": "apps/test/package.json",
               "thirdParty": false,
-              "tsConfig": "./test/tsconfig.json",
+              "tsConfig": "apps/test/tsconfig.json",
             },
             "outputs": [
               "{options.outputPath}",
@@ -172,7 +160,7 @@ describe('firebase generator', () => {
             "options": {
               "fix": true,
               "lintFilePatterns": [
-                "./test/**/*.ts",
+                "apps/test/**/*.ts",
               ],
             },
             "outputs": [
@@ -185,12 +173,12 @@ describe('firebase generator', () => {
           "test": {
             "executor": "@nx/jest:jest",
             "options": {
-              "coverageDirectory": "coverage/./test",
-              "jestConfig": "./test/jest.config.ts",
+              "coverageDirectory": "coverage/apps/test",
+              "jestConfig": "apps/test/jest.config.ts",
               "passWithNoTests": true,
             },
             "outputs": [
-              "coverage/./test",
+              "coverage/apps/test",
             ],
           },
         },

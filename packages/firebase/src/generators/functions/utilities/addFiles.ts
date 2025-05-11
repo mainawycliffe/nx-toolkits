@@ -3,16 +3,13 @@ import { NormalizedSchema } from '../generator';
 import path = require('path');
 
 export default function addFiles(tree: Tree, options: NormalizedSchema) {
+  const rootOffsetPath = offsetFromRoot(options.projectRoot);
   const templateOptions = {
     ...options,
     ...names(options.name),
-    offsetFromRoot: offsetFromRoot(options.projectRoot),
+    offsetFromRoot: rootOffsetPath,
     template: '',
-    baseTsConfigFile:
-      options.projectRoot
-        .split('/')
-        .map(() => '..')
-        .join('/') + '/tsconfig.base.json',
+    baseTsConfigFile: path.join(rootOffsetPath, '/tsconfig.base.json'),
   };
 
   generateFiles(

@@ -5,6 +5,5 @@ export interface FirebaseGeneratorSchema {
   tags?: string;
   directory?: string;
   codebase?: string;
-  firebaseProject?: string;
   nodeVersion: FirebaseNodeRuntimeVersion;
 }

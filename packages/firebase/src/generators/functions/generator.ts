@@ -4,7 +4,6 @@ import addDependencies from './utilities/addDependencies';
 import addFiles from './utilities/addFiles';
 import addFirebaseJSON from './utilities/addFirebaseJSON';
 import addProjectConfigs from './utilities/addProjectorConfigs';
-import setupFirebaseProject from './utilities/upsertFirebaseRC';
 
 export interface NormalizedSchema extends FirebaseGeneratorSchema {
   projectName: string;
@@ -39,10 +38,6 @@ function normalizeOptions(
 
 export default async function (tree: Tree, options: FirebaseGeneratorSchema) {
   const normalizedOptions = normalizeOptions(tree, options);
-
-  if (!tree.exists('.firebaserc')) {
-    setupFirebaseProject(tree, normalizedOptions);
-  }
 
   addProjectConfigs(tree, normalizedOptions);
   addFirebaseJSON(tree, normalizedOptions);
