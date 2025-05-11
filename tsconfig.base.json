@@ -15,8 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-toolkits/firebase": ["packages/firebase/src/index.ts"],
-      "@nx-toolkits/testing-library": ["packages/testing-library/src/index.ts"]
+      "@nx-toolkits/firebase": ["packages/firebase/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

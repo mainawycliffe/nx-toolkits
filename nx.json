@@ -20,7 +20,11 @@
       }
     },
     "@nx/eslint:lint": {
-      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"],
+      "inputs": [
+        "default",
+        "{workspaceRoot}/.eslintrc.json",
+        "{workspaceRoot}/eslint.config.mjs"
+      ],
       "cache": true
     }
   },
@@ -32,7 +36,8 @@
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
       "!{projectRoot}/tsconfig.spec.json",
       "!{projectRoot}/jest.config.[jt]s",
-      "!{projectRoot}/src/test-setup.[jt]s"
+      "!{projectRoot}/src/test-setup.[jt]s",
+      "!{projectRoot}/eslint.config.mjs"
     ],
     "sharedGlobals": ["{workspaceRoot}/babel.config.json"]
   },
@@ -71,6 +76,5 @@
     }
   },
   "nxCloudAccessToken": "YTRkYmQ1YTItZDU1OS00NDA2LTlmNjAtNjVhMGQ1MmIwYTNlfHJlYWQtd3JpdGU=",
-  "useInferencePlugins": false,
-  "useLegacyCache": true
+  "useInferencePlugins": false
 }

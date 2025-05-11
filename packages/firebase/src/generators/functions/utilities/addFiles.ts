@@ -1,6 +1,6 @@
-import { Tree, names, offsetFromRoot, generateFiles } from '@nx/devkit';
-import path = require('path');
+import { Tree, generateFiles, names, offsetFromRoot } from '@nx/devkit';
 import { NormalizedSchema } from '../generator';
+import path = require('path');
 
 export default function addFiles(tree: Tree, options: NormalizedSchema) {
   const templateOptions = {
@@ -14,6 +14,7 @@ export default function addFiles(tree: Tree, options: NormalizedSchema) {
         .map(() => '..')
         .join('/') + '/tsconfig.base.json',
   };
+
   generateFiles(
     tree,
     path.join(__dirname, '../files'),
