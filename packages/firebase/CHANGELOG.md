@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.9.0](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.8.4...firebase@0.9.0) (2025-05-11)
+
+
+### Features
+
+* **firebase:** make firebase project init optional ([5a54fba](https://github.com/mainawycliffe/nx-toolkits/commit/5a54fbac31319fceaf2fca399ff6bb2ba55fe9c4))
+
 ## [0.8.4](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.8.3...firebase@0.8.4) (2025-05-11)
 
 ## [0.8.3](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.8.2...firebase@0.8.3) (2025-01-02)
