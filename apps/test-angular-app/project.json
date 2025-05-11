@@ -4,6 +4,7 @@
   "projectType": "application",
   "sourceRoot": "apps/test-angular-app/src",
   "prefix": "nx-toolkits",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -59,7 +60,8 @@
           "buildTarget": "test-angular-app:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "continuous": true
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -78,6 +80,5 @@
         "jestConfig": "apps/test-angular-app/jest.config.ts"
       }
     }
-  },
-  "tags": []
+  }
 }
