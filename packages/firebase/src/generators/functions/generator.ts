@@ -1,7 +1,6 @@
-import { formatFiles, getWorkspaceLayout, names, Tree } from '@nx/devkit';
+import { formatFiles, names, Tree, workspaceLayout } from '@nx/devkit';
 import { FirebaseGeneratorSchema, FirebaseNodeRuntimeVersion } from './schema';
 import addDependencies from './utilities/addDependencies';
-import addEslintConfigs from './utilities/addEslintConfigs';
 import addFiles from './utilities/addFiles';
 import addFirebaseJSON from './utilities/addFirebaseJSON';
 import addProjectConfigs from './utilities/addProjectorConfigs';
@@ -24,7 +23,7 @@ function normalizeOptions(
     ? `${names(options.directory).fileName}/${name}`
     : name;
   const projectName = projectDirectory.replace(new RegExp('/', 'g'), '-');
-  const projectRoot = `${getWorkspaceLayout(tree).appsDir}/${projectDirectory}`;
+  const projectRoot = `${workspaceLayout().appsDir}/${projectDirectory}`;
   const parsedTags = options.tags
     ? options.tags.split(',').map((s) => s.trim())
     : [];
@@ -47,8 +46,6 @@ export default async function (tree: Tree, options: FirebaseGeneratorSchema) {
 
   addProjectConfigs(tree, normalizedOptions);
   addFirebaseJSON(tree, normalizedOptions);
-
-  addEslintConfigs(tree, normalizedOptions);
 
   addFiles(tree, normalizedOptions);
 
