@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.9.1](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.9.0...firebase@0.9.1) (2025-05-12)
+
+
+### Bug Fixes
+
+* **firebase:** fix old versions of dependencies ([7ab289d](https://github.com/mainawycliffe/nx-toolkits/commit/7ab289d50aa4b1824688c3747564a0640fe3cdcb))
+
 ## [0.9.0](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.8.4...firebase@0.9.0) (2025-05-11)
 
 
