@@ -8,14 +8,14 @@ export default function addDependencies(tree: Tree) {
   return addDependenciesToPackageJson(
     tree,
     {
-      'firebase-admin': '^12.0.0',
-      'firebase-functions': '^5.0.0',
+      'firebase-admin': '^13.0.0',
+      'firebase-functions': '^6.0.0',
     },
     {
-      'firebase-functions-test': '^3.1.1',
+      'firebase-functions-test': '^3.4.2',
       '@nx/esbuild': nxWorkspaceVersion || 'latest',
       '@nx/jest': nxWorkspaceVersion || 'latest',
-      esbuild: '^0.20.2',
+      esbuild: '^0.22.0',
     }
   );
 }
