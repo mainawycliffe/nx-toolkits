@@ -12,7 +12,7 @@ export default function addDependencies(tree: Tree) {
       'firebase-functions': '^6.0.0',
     },
     {
-      'firebase-functions-test': '^3.4.2',
+      'firebase-functions-test': '^3.4.1',
       '@nx/esbuild': nxWorkspaceVersion || 'latest',
       '@nx/jest': nxWorkspaceVersion || 'latest',
       esbuild: '^0.22.0',
