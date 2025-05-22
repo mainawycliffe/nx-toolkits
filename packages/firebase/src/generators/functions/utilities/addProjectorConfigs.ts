@@ -62,6 +62,34 @@ export default function addProjectConfigs(
           },
         },
       },
+      watch: {
+        executor: '@nx/esbuild:esbuild',
+        outputs: ['{options.outputPath}'],
+        defaultConfiguration: 'production',
+        options: {
+          main: `${normalizedOptions.projectRoot}/src/index.ts`,
+          outputPath: `dist/${normalizedOptions.projectRoot}`,
+          outputFileName: 'index.js',
+          project: `${normalizedOptions.projectRoot}/package.json`,
+          tsConfig: `${normalizedOptions.projectRoot}/tsconfig.json`,
+          assets: [],
+          platform: 'node',
+          dependenciesFieldType: 'dependencies',
+          // do not bundle npm dependencies
+          thirdParty: false,
+          // generate package.json file with dependencies
+          generatePackageJson: true,
+          watch: true
+        },
+        configurations: {
+          development: {
+            minify: false,
+          },
+          production: {
+            minify: true,
+          },
+        },
+      },
       serve: {
         command: `firebase emulators:start --only functions${appendCodebase}`,
       },
