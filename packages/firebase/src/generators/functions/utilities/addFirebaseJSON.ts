@@ -16,12 +16,12 @@ export default function addFirebaseJSON(tree: Tree, options: NormalizedSchema) {
   const packageManager = detectPackageManager();
   const commandToRunNX = packageManager === 'npm' ? 'npx' : packageManager;
 
-  // connect to firebase, by modifying the firebase.json file
-  // and point it to the new functions directory
-  const firebaseJsonContent = tree.read('firebase.json')?.toString();
-  const firebaseJson = firebaseJsonContent
+  const firebaseJsonPath = 'firebase.json';
+  const firebaseJsonContent = tree.read(firebaseJsonPath)?.toString();
+  const existingFirebaseJson = firebaseJsonContent
     ? JSON.parse(firebaseJsonContent)
     : null;
+
   const functionsDirectory = `dist/${options.projectRoot}`;
   const firebaseFunctionConfig: FirebaseFunctionConfig = {
     source: functionsDirectory,
@@ -48,21 +48,92 @@ export default function addFirebaseJSON(tree: Tree, options: NormalizedSchema) {
     ],
   };
 
-  const firebaseConfigs = {
-    ...firebaseJson,
-    // we are overwriting the functions config, because we don't want to add
-    // multiple codebase configs, we won't delete the existing codebase, as it
-    // might be wise to copy them over manually
-    functions: [
-      // make sure we don't add a duplicate codebase function config
-      ...(firebaseJson && firebaseJson.functions
-        ? (firebaseJson.functions as FirebaseFunctionConfigs).filter(
-            (config) => config.codebase !== codebase
-          )
-        : []),
+  let updatedFunctionsArray: FirebaseFunctionConfigs;
+  if (existingFirebaseJson && existingFirebaseJson.functions) {
+    updatedFunctionsArray = [
+      ...(existingFirebaseJson.functions as FirebaseFunctionConfigs).filter(
+        (config) => config.codebase !== codebase
+      ),
       firebaseFunctionConfig,
-    ],
-  };
+    ];
+  } else {
+    updatedFunctionsArray = [firebaseFunctionConfig];
+  }
 
-  writeJson(tree, 'firebase.json', firebaseConfigs);
+  let firebaseConfigs;
+  if (existingFirebaseJson) {
+    firebaseConfigs = {
+      ...existingFirebaseJson,
+      functions: updatedFunctionsArray,
+    };
+  } else {
+    // firebase.json doesn't exist, create a default structure
+    firebaseConfigs = {
+      firestore: {
+        rules: 'firestore.rules',
+        indexes: 'firestore.indexes.json',
+      },
+      hosting: {
+        public: 'public',
+        ignore: ['firebase.json', '**/.*', '**/node_modules/**'],
+      },
+      storage: {
+        rules: 'storage.rules',
+      },
+      emulators: {
+        auth: { port: 9099 },
+        functions: { port: 5001 },
+        firestore: { port: 8080 },
+        database: { port: 9000 },
+        hosting: { port: 5000 },
+        pubsub: { port: 8085 },
+        storage: { port: 9199 },
+        ui: { enabled: true, port: 4000 },
+      },
+      functions: updatedFunctionsArray,
+    };
+
+    // Create placeholder files if they don't exist
+    if (!tree.exists('firestore.rules')) {
+      tree.write(
+        'firestore.rules',
+        `rules_version = '2';\n\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    match /{document=**} {\n      allow read, write: if false;\n    }\n  }\n}`
+      );
+    }
+    if (!tree.exists('firestore.indexes.json')) {
+      tree.write(
+        'firestore.indexes.json',
+        `{\n  "indexes": [],\n  "fieldOverrides": []\n}`
+      );
+    }
+    if (!tree.exists('storage.rules')) {
+      tree.write(
+        'storage.rules',
+        `rules_version = '2';\n\nservice firebase.storage {\n  match /b/{bucket}/o {\n    match /{allPaths=**} {\n      allow read, write: if false;\n    }\n  }\n}`
+      );
+    }
+    if (!tree.exists('public/index.html')) {
+      if (!tree.exists('public')) {
+        // Ensure directory is created. Writing an empty file or a .gitkeep.
+        // For simplicity, if public/index.html is being created, 'public' dir will be made.
+        // If user wants an empty public dir initially, they can clear index.html or handle it.
+      }
+      tree.write(
+        'public/index.html',
+        `<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Firebase Hosting</title>
+  </head>
+  <body>
+    <h1>Welcome to Firebase Hosting</h1>
+    <p>This is a placeholder page.</p>
+  </body>
+</html>`
+      );
+    }
+  }
+
+  writeJson(tree, firebaseJsonPath, firebaseConfigs);
 }
