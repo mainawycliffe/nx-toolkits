@@ -40,14 +40,11 @@ describe('firebase generator', () => {
             "executor": "@nx/esbuild:esbuild",
             "options": {
               "assets": [],
-              "dependenciesFieldType": "dependencies",
               "generatePackageJson": true,
               "main": "apps/test/src/index.ts",
               "outputFileName": "index.js",
               "outputPath": "dist/apps/test",
               "platform": "node",
-              "project": "apps/test/package.json",
-              "thirdParty": false,
               "tsConfig": "apps/test/tsconfig.json",
             },
             "outputs": [
@@ -138,14 +135,11 @@ describe('firebase generator', () => {
             "executor": "@nx/esbuild:esbuild",
             "options": {
               "assets": [],
-              "dependenciesFieldType": "dependencies",
               "generatePackageJson": true,
               "main": "apps/test/src/index.ts",
               "outputFileName": "index.js",
               "outputPath": "dist/apps/test",
               "platform": "node",
-              "project": "apps/test/package.json",
-              "thirdParty": false,
               "tsConfig": "apps/test/tsconfig.json",
             },
             "outputs": [

@@ -43,13 +43,9 @@ export default function addProjectConfigs(
           main: `${normalizedOptions.projectRoot}/src/index.ts`,
           outputPath: `dist/${normalizedOptions.projectRoot}`,
           outputFileName: 'index.js',
-          project: `${normalizedOptions.projectRoot}/package.json`,
           tsConfig: `${normalizedOptions.projectRoot}/tsconfig.json`,
           assets: [],
           platform: 'node',
-          dependenciesFieldType: 'dependencies',
-          // do not bundle npm dependencies
-          thirdParty: false,
           // generate package.json file with dependencies
           generatePackageJson: true,
         },
