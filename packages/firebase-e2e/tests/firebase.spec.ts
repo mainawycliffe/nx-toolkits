@@ -23,36 +23,77 @@ describe('firebase e2e', () => {
     runNxCommandAsync('reset');
   });
 
-  it('should create firebase', async () => {
-    const project = uniq('firebase');
+  it('should generate functions app with correct config', async () => {
+    const project = uniq('functions');
     await runNxCommandAsync(
-      `generate @nx-toolkits/firebase:firebase ${project}`
+      `generate @nx-toolkits/firebase:functions ${project}`
     );
-    const result = await runNxCommandAsync(`build ${project}`);
-    expect(result.stdout).toContain('Executor ran');
-  }, 120000);
+
+    // Files should exist under apps/<project>
+    expect(() =>
+      checkFilesExist(
+        `apps/${project}/src/index.ts`,
+        `apps/${project}/jest.config.ts`
+      )
+    ).not.toThrow();
+
+    // Project config should contain proper build target
+    const projectJson = readJson(`apps/${project}/project.json`);
+    expect(projectJson.targets.build.executor).toBe('@nx/esbuild:esbuild');
+    expect(projectJson.targets.build.options.main).toBe(
+      `apps/${project}/src/index.ts`
+    );
+    expect(projectJson.targets.build.options.outputPath).toBe(
+      `dist/apps/${project}`
+    );
+
+    // firebase.json should be updated with default codebase entry
+    const firebaseJson = readJson('firebase.json');
+    const fnEntry = (firebaseJson.functions || []).find(
+      (f: any) => f.codebase === 'default'
+    );
+    expect(fnEntry).toBeTruthy();
+    expect(fnEntry.source).toBe(`dist/apps/${project}`);
+    expect(fnEntry.predeploy).toContainEqual(
+      expect.stringContaining(`nx run ${project}:build`)
+    );
+  }, 180000);
 
   describe('--directory', () => {
-    it('should create src in the specified directory', async () => {
-      const project = uniq('firebase');
+    it('should create project in the specified directory', async () => {
+      const project = uniq('functions');
       await runNxCommandAsync(
-        `generate @nx-toolkits/firebase:firebase ${project} --directory subdir`
+        `generate @nx-toolkits/firebase:functions ${project} --directory subdir`
       );
       expect(() =>
-        checkFilesExist(`libs/subdir/${project}/src/index.ts`)
+        checkFilesExist(`apps/subdir/${project}/src/index.ts`)
       ).not.toThrow();
-    }, 120000);
+    }, 180000);
   });
 
   describe('--tags', () => {
     it('should add tags to the project', async () => {
-      const projectName = uniq('firebase');
-      ensureNxProject('@nx-toolkits/firebase', 'dist/packages/firebase');
+      const projectName = uniq('functions');
       await runNxCommandAsync(
-        `generate @nx-toolkits/firebase:firebase ${projectName} --tags e2etag,e2ePackage`
+        `generate @nx-toolkits/firebase:functions ${projectName} --tags e2etag,e2ePackage`
       );
-      const project = readJson(`libs/${projectName}/project.json`);
-      expect(project.tags).toEqual(['e2etag', 'e2ePackage']);
-    }, 120000);
+      const projectJson = readJson(`apps/${projectName}/project.json`);
+      expect(projectJson.tags).toEqual(['e2etag', 'e2ePackage']);
+    }, 180000);
+  });
+
+  describe('--codebase', () => {
+    it('should set codebase in firebase.json and not duplicate entries', async () => {
+      const project = uniq('functions');
+      await runNxCommandAsync(
+        `generate @nx-toolkits/firebase:functions ${project} --codebase api`
+      );
+      const firebaseJson = readJson('firebase.json');
+      const entries = (firebaseJson.functions || []).filter(
+        (f: any) => f.codebase === 'api'
+      );
+      expect(entries.length).toBe(1);
+      expect(entries[0].source).toBe(`dist/apps/${project}`);
+    }, 180000);
   });
 });
