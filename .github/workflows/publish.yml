@@ -63,6 +63,9 @@ jobs:
       - name: Build
         run: pnpm nx run ${{ steps.get-tag-name.outputs.result }}:build
 
+      - name: e2e tests
+        run: pnpm nx run ${{ steps.get-tag-name.outputs.result }}-e2e:e2e
+
       - name: Create Release
         uses: ncipollo/release-action@v1.14.0
         with:

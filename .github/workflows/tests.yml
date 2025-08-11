@@ -64,5 +64,8 @@ jobs:
       # - name: Test
       #   run: pnpm nx affected -t test
 
+      - name: firebase:e2e tests
+        run: pnpm nx run firebase-e2e:e2e
+
       - name: Build
         run: pnpm nx affected -t build
