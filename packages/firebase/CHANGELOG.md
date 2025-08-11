@@ -2,6 +2,18 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.10.0](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.9.2...firebase@0.10.0) (2025-08-11)
+
+
+### Features
+
+* **firebase:** add placeholder files for firebase if not pressent ([a32746b](https://github.com/mainawycliffe/nx-toolkits/commit/a32746b18f07e724251e5a0a82aa3c9c60abe9fe))
+
+
+### Bug Fixes
+
+* **firebase:** remove unsupported project configurations ([ba6e1b7](https://github.com/mainawycliffe/nx-toolkits/commit/ba6e1b7972484ac0bdcdce8ae846c1aea29d4e81))
+
 ## [0.9.2](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.9.1...firebase@0.9.2) (2025-05-22)
 
 
