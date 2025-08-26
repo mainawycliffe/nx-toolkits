@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "Hosting",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use?"
+    },
+    "project": {
+      "type": "string",
+      "description": "The project to setup hosting for.",
+      "x-prompt": "What is the name of the project?"
+    },
+    "framework": {
+      "type": "string",
+      "description": "What kind of project are we setting for Firebase.",
+      "x-prompt": {
+        "type": "list",
+        "message": "What is the target to deploy?",
+        "items": [
+          {
+            "value": "static",
+            "label": "Static Site (Multi-Page Application) - No Redirects or Rewrites"
+          },
+          {
+            "value": "spa",
+            "label": "SPA (No SSR - Angular, React, Vue, etc.)"
+          },
+          {
+            "value": "ssr",
+            "label": "SSR (Server Side Rendered - Angular Universal, Nuxt, etc.)"
+          },
+          {
+            "value": "next.js",
+            "label": "Next.js"
+          },
+          {
+            "value": "gatsby",
+            "label": "Gatsby"
+          },
+          {
+            "value": "astro",
+            "label": "Astro (SSR)"
+          },
+          {
+            "value": "remix",
+            "label": "React Remix (SSR)"
+          }
+        ]
+      }
+    },
+    "tags": {
+      "type": "string",
+      "description": "Add tags to the project (used for linting)",
+      "alias": "t"
+    },
+    "directory": {
+      "type": "string",
+      "description": "A directory where the project is placed"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

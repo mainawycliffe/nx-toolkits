@@ -7,6 +7,11 @@
       "factory": "./src/generators/functions/generator",
       "schema": "./src/generators/functions/schema.json",
       "description": "firebase functions generator"
+    },
+    "hosting": {
+      "factory": "./src/generators/hosting/generator",
+      "schema": "./src/generators/hosting/schema.json",
+      "description": "hosting generator"
     }
   }
 }
