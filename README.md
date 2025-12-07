@@ -101,4 +101,6 @@ Learn more in the [package documentation](packages/firebase/README.md#firebase-g
 
 - [x] Add support for Firebase functions
 - [x] Add support for Firebase Genkit
-- [ ] Add support for Firebase hosting
+- [x] Add support for Firebase hosting (experimental)
+- [ ] Add support for Firebase Emulators integration
+- [ ] Add support for Firebase App Hosting (managed SSR)
