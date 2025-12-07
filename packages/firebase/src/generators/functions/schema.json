@@ -40,7 +40,12 @@
         "16",
         "18",
         "20",
-        "22"
+        "22",
+        14,
+        16,
+        18,
+        20,
+        22
       ],
       "x-prompt": {
         "message": "What node runtime version would you like to use?",

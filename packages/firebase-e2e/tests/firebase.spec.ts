@@ -124,15 +124,17 @@ describe('firebase e2e', () => {
         `generate @nx-toolkits/firebase:functions ${project} --genkit=true`
       );
 
-      // Check that Genkit dependencies are installed
-      const packageJson = readJson(`apps/${project}/package.json`);
-      expect(packageJson.dependencies).toHaveProperty('genkit');
-      expect(packageJson.dependencies).toHaveProperty(
+      // Check that Genkit dependencies are installed in workspace root
+      const rootPackageJson = readJson(`package.json`);
+      expect(rootPackageJson.dependencies).toHaveProperty('genkit');
+      expect(rootPackageJson.dependencies).toHaveProperty(
         '@genkit-ai/google-genai'
       );
-      expect(packageJson.dependencies).toHaveProperty('@genkit-ai/firebase');
-      expect(packageJson.dependencies).toHaveProperty('zod');
-      expect(packageJson.devDependencies).toHaveProperty('tsx');
+      expect(rootPackageJson.dependencies).toHaveProperty(
+        '@genkit-ai/firebase'
+      );
+      expect(rootPackageJson.dependencies).toHaveProperty('zod');
+      expect(rootPackageJson.devDependencies).toHaveProperty('tsx');
     }, 180000);
 
     it('should add genkit-ui target when Genkit is enabled', async () => {
@@ -155,12 +157,10 @@ describe('firebase e2e', () => {
         `generate @nx-toolkits/firebase:functions ${project} --genkit=false`
       );
 
-      const packageJson = readJson(`apps/${project}/package.json`);
-      expect(packageJson.dependencies).not.toHaveProperty('genkit');
-      expect(packageJson.dependencies).not.toHaveProperty(
-        '@genkit-ai/google-genai'
-      );
-      expect(packageJson.devDependencies).not.toHaveProperty('tsx');
+      // Genkit deps should not be in workspace root (or may already exist from previous test)
+      // Just verify the genkit-ui target is not added
+      const projectJson = readJson(`apps/${project}/project.json`);
+      expect(projectJson.targets).not.toHaveProperty('genkit-ui');
     }, 180000);
 
     it('should not add genkit-ui target when Genkit is disabled', async () => {
@@ -268,9 +268,12 @@ describe('firebase e2e', () => {
       expect(packageJson.name).toBe(project);
       expect(packageJson.main).toBe('index.js');
       expect(packageJson.engines).toHaveProperty('node');
-      expect(packageJson.dependencies).toHaveProperty('firebase-admin');
-      expect(packageJson.dependencies).toHaveProperty('firebase-functions');
-      expect(packageJson.devDependencies).toHaveProperty(
+
+      // Firebase dependencies are in workspace root
+      const rootPackageJson = readJson(`package.json`);
+      expect(rootPackageJson.dependencies).toHaveProperty('firebase-admin');
+      expect(rootPackageJson.dependencies).toHaveProperty('firebase-functions');
+      expect(rootPackageJson.devDependencies).toHaveProperty(
         'firebase-functions-test'
       );
     }, 180000);
@@ -313,13 +316,18 @@ describe('firebase e2e', () => {
         `generate @nx-toolkits/firebase:functions ${regularProject} --genkit=false`
       );
 
-      const genkitPackageJson = readJson(`apps/${genkitProject}/package.json`);
-      const regularPackageJson = readJson(
-        `apps/${regularProject}/package.json`
+      // Genkit dependencies are in workspace root when enabled
+      const rootPackageJson = readJson(`package.json`);
+      expect(rootPackageJson.dependencies).toHaveProperty('genkit');
+
+      // Verify genkit-ui target exists only for genkit project
+      const genkitProjectJson = readJson(`apps/${genkitProject}/project.json`);
+      const regularProjectJson = readJson(
+        `apps/${regularProject}/project.json`
       );
 
-      expect(genkitPackageJson.dependencies).toHaveProperty('genkit');
-      expect(regularPackageJson.dependencies).not.toHaveProperty('genkit');
+      expect(genkitProjectJson.targets).toHaveProperty('genkit-ui');
+      expect(regularProjectJson.targets).not.toHaveProperty('genkit-ui');
     }, 180000);
   });
 });

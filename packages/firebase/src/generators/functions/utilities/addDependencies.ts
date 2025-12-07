@@ -12,24 +12,22 @@ export default function addDependencies(
   const dependencies: Record<string, string> = {
     'firebase-admin': '^13.0.0',
     'firebase-functions': '^6.0.0',
+    ...(options?.genkit && {
+      genkit: 'latest',
+      '@genkit-ai/google-genai': 'latest',
+      '@genkit-ai/firebase': 'latest',
+      zod: 'latest',
+    }),
   };
-
-  const genkitDependenciesConfig = options?.genkit
-    ? {
-        genkit: 'latest',
-        '@genkit-ai/google-genai': 'latest',
-        '@genkit-ai/firebase': 'latest',
-        zod: 'latest',
-        tsx: 'latest',
-      }
-    : {};
 
   const devDependencies: Record<string, string> = {
     'firebase-functions-test': '^3.4.1',
     '@nx/esbuild': nxWorkspaceVersion || 'latest',
     '@nx/jest': nxWorkspaceVersion || 'latest',
     esbuild: '^0.22.0',
-    ...genkitDependenciesConfig,
+    ...(options?.genkit && {
+      tsx: 'latest',
+    }),
   };
 
   return addDependenciesToPackageJson(tree, dependencies, devDependencies);
