@@ -140,16 +140,16 @@ This will:
 
 #### Hosting Generator Options
 
-| Option          | Description                                           | Default       |
-| --------------- | ----------------------------------------------------- | ------------- |
-| `--project`     | The Nx project to configure for Firebase Hosting      | (required)    |
-| `--site`        | Firebase Hosting site ID (defaults to project name)   | project name  |
-| `--buildTarget` | The build target to use (e.g., 'build:production')    | 'build'       |
-| `--rewrites`    | Add SPA rewrites (redirects all routes to index.html) | true          |
-| `--headers`     | Add security headers                                  | true          |
-| `--ssr`         | Enable Server-Side Rendering with Cloud Functions     | false         |
-| `--ssrFunction` | Name of the Cloud Function for SSR (required if ssr=true) | -        |
-| `--region`      | Firebase region for SSR function                      | us-central1   |
+| Option          | Description                                               | Default      |
+| --------------- | --------------------------------------------------------- | ------------ |
+| `--project`     | The Nx project to configure for Firebase Hosting          | (required)   |
+| `--site`        | Firebase Hosting site ID (defaults to project name)       | project name |
+| `--buildTarget` | The build target to use (e.g., 'build:production')        | 'build'      |
+| `--rewrites`    | Add SPA rewrites (redirects all routes to index.html)     | true         |
+| `--headers`     | Add security headers                                      | true         |
+| `--ssr`         | Enable Server-Side Rendering with Cloud Functions         | false        |
+| `--ssrFunction` | Name of the Cloud Function for SSR (required if ssr=true) | -            |
+| `--region`      | Firebase region for SSR function                          | us-central1  |
 
 ### Deploy to Firebase Hosting
 
