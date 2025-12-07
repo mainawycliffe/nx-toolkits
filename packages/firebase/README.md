@@ -70,6 +70,79 @@ You can build a Firebase Functions app using the `nx build` command:
 nx run my-functions-app:build
 ```
 
+## Firebase Functions (Python)
+
+Generate Firebase Cloud Functions using Python runtime. Python functions support Python 3.10, 3.11, and 3.12.
+
+### Generate a Python Firebase Functions app
+
+Use the generator to create a Python functions app:
+
+```bash
+nx g @nx-toolkits/firebase:functions-python my-py-functions --firebaseProject=my-project
+```
+
+This will generate a Python Firebase Functions app with:
+
+- Python source files (`main.py`)
+- Test files with pytest (`main_test.py`)
+- Dependencies management (`requirements.txt`, `requirements-dev.txt`)
+- Testing configuration (`pytest.ini`)
+- Project targets for lint, test, serve, and deploy
+
+#### Python Generator Options
+
+| Option              | Description                                      | Default    |
+| ------------------- | ------------------------------------------------ | ---------- |
+| `--name`            | The name of the Firebase Functions app           | (required) |
+| `--firebaseProject` | The Firebase project ID to connect to            | (required) |
+| `--codebase`        | The codebase name for organizing functions       | default    |
+| `--pythonVersion`   | The Python runtime version (310, 311, or 312)    | 312        |
+| `--directory`       | A directory where the app is placed              | -          |
+| `--tags`            | Add tags to the project (comma-delimited)        | -          |
+| `--linter`          | The Python linter to use (ruff, pylint, or none) | ruff       |
+
+### Install Python Dependencies
+
+After generating, install the Python dependencies:
+
+```bash
+cd apps/my-py-functions
+pip install -r requirements.txt -r requirements-dev.txt
+```
+
+### Test Python Functions
+
+Run tests using pytest:
+
+```bash
+nx test my-py-functions
+```
+
+### Lint Python Functions
+
+Lint your Python code (uses Ruff by default):
+
+```bash
+nx lint my-py-functions
+```
+
+### Serve Python Functions Locally
+
+Start the Firebase emulator:
+
+```bash
+nx serve my-py-functions
+```
+
+### Deploy Python Functions
+
+Deploy to Firebase:
+
+```bash
+nx deploy my-py-functions
+```
+
 ## Firebase Genkit Support
 
 [Firebase Genkit](https://firebase.google.com/docs/genkit) is a framework for building AI-powered applications. This toolkit provides first-class support for Genkit integration.

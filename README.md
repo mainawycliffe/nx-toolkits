@@ -2,13 +2,14 @@
 
 This is a monorepo for the Nx toolkits. It contains the following toolkits:
 
-- [@nx-toolkits/firebase](packages/firebase/README.md) - Generate Firebase Functions apps and configure Firebase Hosting (experimental)
+- [@nx-toolkits/firebase](packages/firebase/README.md) - Generate Firebase Functions apps (Node.js & Python) and configure Firebase Hosting (experimental)
 
 ## @nx-toolkits/firebase
 
 This toolkit helps you integrate Firebase services into your Nx workspace:
 
-- **Firebase Functions** - Generate Cloud Functions apps with optional Genkit AI support
+- **Firebase Functions (Node.js)** - Generate Cloud Functions apps with optional Genkit AI support
+- **Firebase Functions (Python)** - Generate Python Cloud Functions with pytest and linting
 - **Firebase Hosting** ⚠️ Experimental - Configure hosting for any static Nx app
 
 ### NX Functions Generator

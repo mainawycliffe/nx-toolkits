@@ -1,0 +1,36 @@
+"""Tests for Cloud Functions."""
+
+import pytest
+from unittest.mock import Mock
+from src.main import helloworld, addmessage
+from firebase_functions import https_fn
+
+
+def test_helloworld():
+    """Test helloworld HTTP function."""
+    req = Mock(spec=https_fn.Request)
+    response = helloworld(req)
+    
+    assert response.status_code == 200
+    assert "Hello from Firebase!" in response.get_data(as_text=True)
+
+
+def test_addmessage_with_text():
+    """Test addmessage callable function with valid text."""
+    req = Mock(spec=https_fn.CallableRequest)
+    req.data = {"text": "Test message"}
+    
+    result = addmessage(req)
+    
+    assert result == "Message added: Test message"
+
+
+def test_addmessage_without_text():
+    """Test addmessage callable function without text."""
+    req = Mock(spec=https_fn.CallableRequest)
+    req.data = {}
+    
+    with pytest.raises(https_fn.HttpsError) as exc_info:
+        addmessage(req)
+    
+    assert exc_info.value.code == https_fn.FunctionsErrorCode.INVALID_ARGUMENT

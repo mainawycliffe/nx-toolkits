@@ -459,4 +459,101 @@ describe('firebase e2e', () => {
       ).rejects.toThrow();
     }, 180000);
   });
+
+  describe('python functions', () => {
+    it('should generate Python functions app with correct config', async () => {
+      const project = uniq('py-functions');
+      await runNxCommandAsync(
+        `generate @nx-toolkits/firebase:functions-python ${project} --firebaseProject=test-project`
+      );
+
+      // Files should exist
+      expect(() =>
+        checkFilesExist(
+          `apps/${project}/src/main.py`,
+          `apps/${project}/src/main_test.py`,
+          `apps/${project}/requirements.txt`,
+          `apps/${project}/requirements-dev.txt`,
+          `apps/${project}/pytest.ini`,
+          `apps/${project}/.gitignore`,
+          `apps/${project}/README.md`
+        )
+      ).not.toThrow();
+
+      // Project config should contain proper targets
+      const projectJson = readJson(`apps/${project}/project.json`);
+      expect(projectJson.targets.test).toBeDefined();
+      expect(projectJson.targets.lint).toBeDefined();
+      expect(projectJson.targets.serve).toBeDefined();
+      expect(projectJson.targets.deploy).toBeDefined();
+
+      // firebase.json should be updated with Python runtime
+      const firebaseJson = readJson('firebase.json');
+      expect(firebaseJson.functions).toBeDefined();
+      const functionConfig = firebaseJson.functions.find(
+        (fn: { source: string }) => fn.source === `apps/${project}`
+      );
+      expect(functionConfig).toBeDefined();
+      expect(functionConfig.runtime).toBe('python312');
+    }, 180000);
+
+    it('should support different Python versions', async () => {
+      const project = uniq('py-functions');
+      await runNxCommandAsync(
+        `generate @nx-toolkits/firebase:functions-python ${project} --firebaseProject=test-project --pythonVersion=311`
+      );
+
+      const firebaseJson = readJson('firebase.json');
+      const functionConfig = firebaseJson.functions.find(
+        (fn: { source: string }) => fn.source === `apps/${project}`
+      );
+      expect(functionConfig.runtime).toBe('python311');
+    }, 180000);
+
+    it('should support custom codebase', async () => {
+      const project = uniq('py-functions');
+      await runNxCommandAsync(
+        `generate @nx-toolkits/firebase:functions-python ${project} --firebaseProject=test-project --codebase=py-codebase`
+      );
+
+      const firebaseJson = readJson('firebase.json');
+      const functionConfig = firebaseJson.functions.find(
+        (fn: { codebase?: string }) => fn.codebase === 'py-codebase'
+      );
+      expect(functionConfig).toBeDefined();
+      expect(functionConfig.runtime).toBe('python312');
+    }, 180000);
+
+    it('should support different linters', async () => {
+      const project1 = uniq('py-functions');
+      await runNxCommandAsync(
+        `generate @nx-toolkits/firebase:functions-python ${project1} --firebaseProject=test-project --linter=pylint`
+      );
+
+      const projectJson1 = readJson(`apps/${project1}/project.json`);
+      expect(projectJson1.targets.lint.options.command).toContain('pylint');
+
+      const project2 = uniq('py-functions');
+      await runNxCommandAsync(
+        `generate @nx-toolkits/firebase:functions-python ${project2} --firebaseProject=test-project --linter=none`
+      );
+
+      const projectJson2 = readJson(`apps/${project2}/project.json`);
+      expect(projectJson2.targets.lint).toBeUndefined();
+    }, 180000);
+
+    it('should support custom directory', async () => {
+      const project = uniq('py-functions');
+      await runNxCommandAsync(
+        `generate @nx-toolkits/firebase:functions-python ${project} --firebaseProject=test-project --directory=python`
+      );
+
+      expect(() =>
+        checkFilesExist(`apps/python/${project}/src/main.py`)
+      ).not.toThrow();
+
+      const projectJson = readJson(`apps/python/${project}/project.json`);
+      expect(projectJson.root).toBe(`apps/python/${project}`);
+    }, 180000);
+  });
 });

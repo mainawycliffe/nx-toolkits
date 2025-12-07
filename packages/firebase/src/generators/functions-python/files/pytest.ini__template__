@@ -1,0 +1,10 @@
+[pytest]
+testpaths = src
+python_files = *_test.py
+python_classes = Test*
+python_functions = test_*
+addopts = 
+    --verbose
+    --cov=src
+    --cov-report=html
+    --cov-report=term-missing

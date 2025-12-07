@@ -1,0 +1,97 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "$id": "FirebaseFunctionsPython",
+    "title": "Generate Firebase Cloud Functions (Python)",
+    "description": "Generate a Firebase Cloud Functions app using Python runtime in an Nx workspace.",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "The name of the Firebase Functions app",
+            "$default": {
+                "$source": "argv",
+                "index": 0
+            },
+            "x-prompt": "What name would you like to use for the Firebase Functions app?"
+        },
+        "firebaseProject": {
+            "type": "string",
+            "description": "The Firebase project ID to connect to",
+            "alias": "project",
+            "x-prompt": "What is your Firebase project ID?"
+        },
+        "codebase": {
+            "type": "string",
+            "description": "The codebase name for organizing functions. Learn more: https://firebase.google.com/docs/functions/organize-functions",
+            "default": "default"
+        },
+        "pythonVersion": {
+            "type": "string",
+            "description": "The Python runtime version to use",
+            "default": "312",
+            "enum": [
+                "310",
+                "311",
+                "312"
+            ],
+            "x-prompt": {
+                "message": "Which Python version would you like to use?",
+                "type": "list",
+                "items": [
+                    {
+                        "value": "310",
+                        "label": "Python 3.10"
+                    },
+                    {
+                        "value": "311",
+                        "label": "Python 3.11"
+                    },
+                    {
+                        "value": "312",
+                        "label": "Python 3.12"
+                    }
+                ]
+            }
+        },
+        "directory": {
+            "type": "string",
+            "description": "A directory where the app is placed"
+        },
+        "tags": {
+            "type": "string",
+            "description": "Add tags to the project (comma-delimited)"
+        },
+        "linter": {
+            "type": "string",
+            "description": "The Python linter to use",
+            "default": "ruff",
+            "enum": [
+                "ruff",
+                "pylint",
+                "none"
+            ],
+            "x-prompt": {
+                "message": "Which Python linter would you like to use?",
+                "type": "list",
+                "items": [
+                    {
+                        "value": "ruff",
+                        "label": "Ruff (fast, modern)"
+                    },
+                    {
+                        "value": "pylint",
+                        "label": "Pylint (traditional)"
+                    },
+                    {
+                        "value": "none",
+                        "label": "None"
+                    }
+                ]
+            }
+        }
+    },
+    "required": [
+        "name",
+        "firebaseProject"
+    ]
+}

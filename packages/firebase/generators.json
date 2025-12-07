@@ -8,6 +8,11 @@
       "schema": "./src/generators/functions/schema.json",
       "description": "firebase functions generator"
     },
+    "functions-python": {
+      "factory": "./src/generators/functions-python/generator",
+      "schema": "./src/generators/functions-python/schema.json",
+      "description": "Generate Firebase Cloud Functions using Python runtime"
+    },
     "hosting": {
       "factory": "./src/generators/hosting/generator",
       "schema": "./src/generators/hosting/schema.json",

@@ -1,0 +1,44 @@
+# Firebase Cloud Functions for Python
+# https://firebase.google.com/docs/functions/
+
+from firebase_functions import https_fn
+from firebase_admin import initialize_app
+
+# Initialize Firebase Admin SDK
+initialize_app()
+
+
+@https_fn.on_request()
+def helloworld(req: https_fn.Request) -> https_fn.Response:
+    """
+    HTTP Cloud Function.
+    
+    Args:
+        req (https_fn.Request): The request object.
+        
+    Returns:
+        https_fn.Response: The response object.
+    """
+    return https_fn.Response("Hello from Firebase!")
+
+
+@https_fn.on_call()
+def addmessage(req: https_fn.CallableRequest) -> str:
+    """
+    Callable Cloud Function.
+    
+    Args:
+        req (https_fn.CallableRequest): The request object.
+        
+    Returns:
+        str: The response message.
+    """
+    text = req.data.get("text")
+    if text is None:
+        raise https_fn.HttpsError(
+            code=https_fn.FunctionsErrorCode.INVALID_ARGUMENT,
+            message="The function must be called with one argument 'text'."
+        )
+    
+    # Return the result
+    return f"Message added: {text}"

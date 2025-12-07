@@ -1,0 +1,41 @@
+# <%= projectName %>
+
+Firebase Cloud Functions (Python) generated with Nx.
+
+## Development
+
+### Install dependencies
+
+```bash
+pip install -r requirements.txt
+pip install -r requirements-dev.txt
+```
+
+### Run tests
+
+```bash
+nx test <%= projectName %>
+```
+
+### Lint
+
+```bash
+nx lint <%= projectName %>
+```
+
+### Serve locally
+
+```bash
+nx serve <%= projectName %>
+```
+
+### Deploy
+
+```bash
+nx deploy <%= projectName %>
+```
+
+## Learn More
+
+- [Firebase Cloud Functions (Python)](https://firebase.google.com/docs/functions/get-started-python)
+- [Firebase Admin SDK (Python)](https://firebase.google.com/docs/admin/setup)
