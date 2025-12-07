@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.12.0](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.11.0...firebase@0.12.0) (2025-12-07)
+
+
+### Features
+
+* **firebase:** add SSR support to hosting generator (EXPERIMENTAL) ([3a47052](https://github.com/mainawycliffe/nx-toolkits/commit/3a47052d5468ca1625f6308b48fab2e5052e4e6c))
+* **firebase:** add type safety and unit tests for hosting ([efd3c6e](https://github.com/mainawycliffe/nx-toolkits/commit/efd3c6ecc41dc5e36cce95a9d9c325331b7936da))
+
 ## [0.11.0](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.10.0...firebase@0.11.0) (2025-12-07)
 
 
