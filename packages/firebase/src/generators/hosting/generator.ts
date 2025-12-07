@@ -4,10 +4,7 @@ import {
   formatFiles,
   logger,
 } from '@nx/devkit';
-import {
-  FirebaseHostingGeneratorSchema,
-  NormalizedSchema,
-} from './schema';
+import { FirebaseHostingGeneratorSchema, NormalizedSchema } from './schema';
 import updateFirebaseJSON from './utilities/updateFirebaseJSON';
 import addDeployTarget from './utilities/addDeployTarget';
 
@@ -79,8 +76,14 @@ export default async function (
 ✅ Firebase Hosting configured for ${normalizedOptions.projectName}${ssrNote}
 
 Next steps:
-  1. Build your project: nx build ${normalizedOptions.projectName}${options.ssr ? `\n  2. Deploy your SSR function: nx deploy ${options.ssrFunction}` : ''}
-  ${options.ssr ? '3' : '2'}. Deploy to Firebase Hosting: nx deploy ${normalizedOptions.projectName}
+  1. Build your project: nx build ${normalizedOptions.projectName}${
+    options.ssr
+      ? `\n  2. Deploy your SSR function: nx deploy ${options.ssrFunction}`
+      : ''
+  }
+  ${options.ssr ? '3' : '2'}. Deploy to Firebase Hosting: nx deploy ${
+    normalizedOptions.projectName
+  }
 
 Note: This is an experimental feature. Please report any issues.
   `);

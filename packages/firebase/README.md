@@ -140,13 +140,13 @@ This will:
 
 #### Hosting Generator Options
 
-| Option          | Description                                                    | Default            |
-| --------------- | -------------------------------------------------------------- | ------------------ |
-| `--project`     | The Nx project to configure for Firebase Hosting              | (required)         |
-| `--site`        | Firebase Hosting site ID (defaults to project name)            | project name       |
-| `--buildTarget` | The build target to use (e.g., 'build:production')            | 'build'            |
-| `--rewrites`    | Add SPA rewrites (redirects all routes to index.html)          | true               |
-| `--headers`     | Add security headers                                           | true               |
+| Option          | Description                                           | Default      |
+| --------------- | ----------------------------------------------------- | ------------ |
+| `--project`     | The Nx project to configure for Firebase Hosting      | (required)   |
+| `--site`        | Firebase Hosting site ID (defaults to project name)   | project name |
+| `--buildTarget` | The build target to use (e.g., 'build:production')    | 'build'      |
+| `--rewrites`    | Add SPA rewrites (redirects all routes to index.html) | true         |
+| `--headers`     | Add security headers                                  | true         |
 
 ### Deploy to Firebase Hosting
 

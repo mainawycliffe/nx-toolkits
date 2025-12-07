@@ -24,7 +24,8 @@ export default function updateFirebaseJSON(
 
   // Check if hosting config for this site already exists
   const existingConfigIndex = firebaseJson.hosting.findIndex(
-    (config: any) => config.site === options.siteName || config.target === options.siteName
+    (config) =>
+      config.site === options.siteName || config.target === options.siteName
   );
 
   const hostingConfig: any = {

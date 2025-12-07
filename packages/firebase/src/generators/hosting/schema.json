@@ -1,65 +1,67 @@
 {
-  "$schema": "http://json-schema.org/schema",
-  "$id": "FirebaseHosting",
-  "title": "Firebase Hosting Generator (Experimental)",
-  "description": "Configure Firebase Hosting for an existing Nx application. This feature is experimental and subject to change.",
-  "type": "object",
-  "properties": {
-    "project": {
-      "type": "string",
-      "description": "The Nx project to configure for Firebase Hosting",
-      "$default": {
-        "$source": "argv",
-        "index": 0
-      },
-      "x-prompt": "Which Nx project would you like to configure for Firebase Hosting?",
-      "x-dropdown": "projects"
+    "$schema": "http://json-schema.org/schema",
+    "$id": "FirebaseHosting",
+    "title": "Firebase Hosting Generator (Experimental)",
+    "description": "Configure Firebase Hosting for an existing Nx application. This feature is experimental and subject to change.",
+    "type": "object",
+    "properties": {
+        "project": {
+            "type": "string",
+            "description": "The Nx project to configure for Firebase Hosting",
+            "$default": {
+                "$source": "argv",
+                "index": 0
+            },
+            "x-prompt": "Which Nx project would you like to configure for Firebase Hosting?",
+            "x-dropdown": "projects"
+        },
+        "site": {
+            "type": "string",
+            "description": "Firebase Hosting site ID (defaults to project name if not specified)"
+        },
+        "buildTarget": {
+            "type": "string",
+            "description": "The build target to use (e.g., 'build:production'). If not specified, will use the default build target."
+        },
+        "rewrites": {
+            "type": "boolean",
+            "description": "Add SPA rewrites (redirects all routes to index.html)",
+            "default": true,
+            "x-prompt": "Add single-page app (SPA) rewrites?"
+        },
+        "headers": {
+            "type": "boolean",
+            "description": "Add security headers",
+            "default": true,
+            "x-prompt": "Add security headers?"
+        },
+        "ssr": {
+            "type": "boolean",
+            "description": "Enable Server-Side Rendering with Cloud Functions (EXPERIMENTAL)",
+            "default": false,
+            "x-prompt": "Enable SSR with Cloud Functions? (EXPERIMENTAL)"
+        },
+        "ssrFunction": {
+            "type": "string",
+            "description": "Name of the Cloud Function for SSR (required if ssr=true)"
+        },
+        "region": {
+            "type": "string",
+            "description": "Firebase region for SSR function",
+            "default": "us-central1",
+            "enum": [
+                "us-central1",
+                "us-east1",
+                "us-east4",
+                "us-west1",
+                "europe-west1",
+                "europe-west2",
+                "asia-east1",
+                "asia-northeast1"
+            ]
+        }
     },
-    "site": {
-      "type": "string",
-      "description": "Firebase Hosting site ID (defaults to project name if not specified)"
-    },
-    "buildTarget": {
-      "type": "string",
-      "description": "The build target to use (e.g., 'build:production'). If not specified, will use the default build target."
-    },
-    "rewrites": {
-      "type": "boolean",
-      "description": "Add SPA rewrites (redirects all routes to index.html)",
-      "default": true,
-      "x-prompt": "Add single-page app (SPA) rewrites?"
-    },
-    "headers": {
-      "type": "boolean",
-      "description": "Add security headers",
-      "default": true,
-      "x-prompt": "Add security headers?"
-    },
-    "ssr": {
-      "type": "boolean",
-      "description": "Enable Server-Side Rendering with Cloud Functions (EXPERIMENTAL)",
-      "default": false,
-      "x-prompt": "Enable SSR with Cloud Functions? (EXPERIMENTAL)"
-    },
-    "ssrFunction": {
-      "type": "string",
-      "description": "Name of the Cloud Function for SSR (required if ssr=true)"
-    },
-    "region": {
-      "type": "string",
-      "description": "Firebase region for SSR function",
-      "default": "us-central1",
-      "enum": [
-        "us-central1",
-        "us-east1",
-        "us-east4",
-        "us-west1",
-        "europe-west1",
-        "europe-west2",
-        "asia-east1",
-        "asia-northeast1"
-      ]
-    }
-  },
-  "required": ["project"]
+    "required": [
+        "project"
+    ]
 }

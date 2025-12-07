@@ -1,10 +1,7 @@
 import { Tree, updateProjectConfiguration } from '@nx/devkit';
 import { NormalizedSchema } from '../schema';
 
-export default function addDeployTarget(
-  tree: Tree,
-  options: NormalizedSchema
-) {
+export default function addDeployTarget(tree: Tree, options: NormalizedSchema) {
   const projectConfig = options.projectConfig;
 
   // Add deploy target
