@@ -52,14 +52,6 @@
         "type": "list",
         "items": [
           {
-            "value": "14",
-            "label": "Node 14 (deprecated)"
-          },
-          {
-            "value": "16",
-            "label": "Node 16 (deprecated)"
-          },
-          {
             "value": "18",
             "label": "Node 18"
           },
