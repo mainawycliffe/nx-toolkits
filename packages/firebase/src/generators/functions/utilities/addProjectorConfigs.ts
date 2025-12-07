@@ -9,7 +9,7 @@ export default function addProjectConfigs(
   // append the codebase to the command, so that we can deploy the correct
   // functions only.
   // Docs: https://firebase.google.com/docs/functions/beta/organize-functions
-  const { codebase } = normalizedOptions;
+  const { codebase, genkit } = normalizedOptions;
   const appendCodebase =
     codebase && codebase !== 'default' ? `:${codebase}` : '';
 
@@ -64,6 +64,16 @@ export default function addProjectConfigs(
       deploy: {
         command: `firebase deploy --only functions${appendCodebase}`,
       },
+      ...(genkit && {
+        'genkit-ui': {
+          executor: '@nx-toolkits/firebase:genkit-ui',
+          options: {
+            port: 4000,
+            host: 'localhost',
+            open: true,
+          },
+        },
+      }),
     },
     tags: normalizedOptions.parsedTags,
   });

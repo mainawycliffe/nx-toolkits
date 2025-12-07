@@ -29,9 +29,19 @@
       "default": "default"
     },
     "nodeVersion": {
-      "type": "string",
+      "type": [
+        "string",
+        "number"
+      ],
       "description": "Firebase functions node runtime version e.g. 14, 16, 18, 20 or 22",
       "default": "20",
+      "enum": [
+        "14",
+        "16",
+        "18",
+        "20",
+        "22"
+      ],
       "x-prompt": {
         "message": "What node runtime version would you like to use?",
         "type": "list",

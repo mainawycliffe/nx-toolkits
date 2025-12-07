@@ -3,8 +3,8 @@ name: publish to npm
 on:
   push:
     tags:
-      - 'firebase@*'
-      - 'testing-library@*'
+      - "firebase@*"
+      - "testing-library@*"
 
 jobs:
   publish:
@@ -57,20 +57,20 @@ jobs:
       - name: Lint
         run: pnpm nx run ${{ steps.get-tag-name.outputs.result }}:lint
 
-      # - name: Test
-      #   run: pnpm nx run ${{ steps.get-tag-name.outputs.result }}:test
+      - name: Test
+        run: pnpm nx run ${{ steps.get-tag-name.outputs.result }}:test
 
       - name: Build
         run: pnpm nx run ${{ steps.get-tag-name.outputs.result }}:build
 
-      - name: e2e tests
+      - name: E2E Tests
         run: pnpm nx run ${{ steps.get-tag-name.outputs.result }}-e2e:e2e
 
       - name: Create Release
         uses: ncipollo/release-action@v1.14.0
         with:
           artifacts: dist/packages/${{ steps.get-tag-name.outputs.result }}/*.*
-          bodyFile: 'packages/${{ steps.get-tag-name.outputs.result }}/CHANGELOG.md'
+          bodyFile: "packages/${{ steps.get-tag-name.outputs.result }}/CHANGELOG.md"
 
       - name: npm publish
         run: npm publish dist/packages/${{ steps.get-tag-name.outputs.result }} --access public

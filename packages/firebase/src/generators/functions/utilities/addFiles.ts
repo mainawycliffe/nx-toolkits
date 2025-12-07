@@ -7,6 +7,7 @@ export default function addFiles(tree: Tree, options: NormalizedSchema) {
   const templateOptions = {
     ...options,
     ...names(options.name),
+    nodeVersion: String(options.nodeVersion),
     offsetFromRoot: rootOffsetPath,
     template: '',
     baseTsConfigFile: path.join(rootOffsetPath, '/tsconfig.base.json'),
