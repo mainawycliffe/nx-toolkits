@@ -32,7 +32,25 @@ This package generates Firebase Functions apps with optional Firebase Genkit sup
    export type TypeName = 'value1' | 'value2';
    ```
 
-3. **Schema Files**: Every generator and executor must have:
+3. **No Any Types**: Never use `any` type. Always create proper interfaces or use specific types from `@nx/devkit`
+
+   ```typescript
+   // ❌ Bad
+   const config: any = { ... };
+
+   // ✅ Good
+   interface FirebaseConfig {
+     target: string;
+     public: string;
+   }
+   const config: FirebaseConfig = { ... };
+
+   // ✅ Good - use Nx types
+   import { ProjectConfiguration } from '@nx/devkit';
+   const projectConfig: ProjectConfiguration = readProjectConfiguration(tree, name);
+   ```
+
+4. **Schema Files**: Every generator and executor must have:
    - `schema.json` - JSON schema definition with descriptions and prompts
    - `schema.d.ts` - TypeScript type definitions
    - Implementation file (e.g., `generator.ts` or `executor.ts`)
@@ -83,6 +101,7 @@ src/
    - `addFirebaseJSON.ts` - Update firebase.json configuration
 
 3. **Async/Await Pattern**: Use async/await for generator functions:
+
    ```typescript
    export default async function (tree: Tree, options: Schema) {
      const normalizedOptions = normalizeOptions(tree, options);

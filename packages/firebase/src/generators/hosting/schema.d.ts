@@ -1,3 +1,5 @@
+import { ProjectConfiguration } from '@nx/devkit';
+
 export interface FirebaseHostingGeneratorSchema {
   project: string;
   site?: string;
@@ -12,7 +14,7 @@ export interface FirebaseHostingGeneratorSchema {
 export interface NormalizedSchema extends FirebaseHostingGeneratorSchema {
   projectName: string;
   projectRoot: string;
-  projectConfig: any;
+  projectConfig: ProjectConfiguration;
   outputPath: string;
   siteName: string;
 }

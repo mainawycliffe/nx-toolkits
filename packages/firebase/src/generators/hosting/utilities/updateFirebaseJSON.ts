@@ -1,6 +1,33 @@
 import { Tree } from '@nx/devkit';
 import { NormalizedSchema } from '../schema';
 
+interface FirebaseHostingRewrite {
+  source: string;
+  destination?: string;
+  function?: {
+    functionId: string;
+    region: string;
+  };
+}
+
+interface FirebaseHostingHeader {
+  key: string;
+  value: string;
+}
+
+interface FirebaseHostingHeaderConfig {
+  source: string;
+  headers: FirebaseHostingHeader[];
+}
+
+interface FirebaseHostingConfig {
+  target: string;
+  public: string;
+  ignore: string[];
+  rewrites?: FirebaseHostingRewrite[];
+  headers?: FirebaseHostingHeaderConfig[];
+}
+
 export default function updateFirebaseJSON(
   tree: Tree,
   options: NormalizedSchema
@@ -28,7 +55,7 @@ export default function updateFirebaseJSON(
       config.site === options.siteName || config.target === options.siteName
   );
 
-  const hostingConfig: any = {
+  const hostingConfig: FirebaseHostingConfig = {
     target: options.siteName,
     public: options.outputPath,
     ignore: ['firebase.json', '**/.*', '**/node_modules/**'],
