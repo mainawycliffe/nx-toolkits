@@ -15,8 +15,7 @@
       2,
       "always",
       [
-        "firebase",
-        "testing-library"
+        "firebase"
       ]
     ],
     "type-enum": [

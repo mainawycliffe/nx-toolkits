@@ -4,8 +4,6 @@ This is a monorepo for the Nx toolkits. It contains the following toolkits:
 
 - [@nx-toolkits/firebase](packages/firebase/README.md) - Generate Firebase
   Functions apps.
-- [@nx-toolkits/testing-library](packages/testing-library/README.md) - Setup
-  Testing Library for React and Angular.
 
 ## @nx-toolkits/firebase
 
