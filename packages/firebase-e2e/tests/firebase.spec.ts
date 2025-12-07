@@ -330,4 +330,133 @@ describe('firebase e2e', () => {
       expect(regularProjectJson.targets).not.toHaveProperty('genkit-ui');
     }, 180000);
   });
+
+  describe('hosting (experimental)', () => {
+    it('should configure hosting for an existing project', async () => {
+      // First create a functions app
+      const project = uniq('app');
+      await runNxCommandAsync(
+        `generate @nx-toolkits/firebase:functions ${project}`
+      );
+
+      // Then add hosting configuration
+      await runNxCommandAsync(
+        `generate @nx-toolkits/firebase:hosting ${project}`
+      );
+
+      // Check firebase.json was updated
+      const firebaseJson = readJson('firebase.json');
+      expect(firebaseJson.hosting).toBeDefined();
+      expect(Array.isArray(firebaseJson.hosting)).toBe(true);
+
+      const hostingConfig = firebaseJson.hosting.find(
+        (h: any) => h.target === project
+      );
+      expect(hostingConfig).toBeDefined();
+      expect(hostingConfig.public).toContain(`dist/apps/${project}`);
+      expect(hostingConfig.rewrites).toBeDefined();
+      expect(hostingConfig.headers).toBeDefined();
+
+      // Check deploy target was added
+      const projectJson = readJson(`apps/${project}/project.json`);
+      expect(projectJson.targets.deploy).toBeDefined();
+      expect(projectJson.targets.deploy.options.command).toContain(
+        `firebase deploy --only hosting:${project}`
+      );
+      expect(projectJson.targets.deploy.dependsOn).toContain('build');
+    }, 180000);
+
+    it('should support custom site names', async () => {
+      const project = uniq('app');
+      const siteName = 'custom-site';
+
+      await runNxCommandAsync(
+        `generate @nx-toolkits/firebase:functions ${project}`
+      );
+      await runNxCommandAsync(
+        `generate @nx-toolkits/firebase:hosting ${project} --site=${siteName}`
+      );
+
+      const firebaseJson = readJson('firebase.json');
+      const hostingConfig = firebaseJson.hosting.find(
+        (h: any) => h.target === siteName
+      );
+
+      expect(hostingConfig).toBeDefined();
+      expect(hostingConfig.target).toBe(siteName);
+    }, 180000);
+
+    it('should allow disabling rewrites and headers', async () => {
+      const project = uniq('app');
+
+      await runNxCommandAsync(
+        `generate @nx-toolkits/firebase:functions ${project}`
+      );
+      await runNxCommandAsync(
+        `generate @nx-toolkits/firebase:hosting ${project} --rewrites=false --headers=false`
+      );
+
+      const firebaseJson = readJson('firebase.json');
+      const hostingConfig = firebaseJson.hosting.find(
+        (h: any) => h.target === project
+      );
+
+      expect(hostingConfig.rewrites).toBeUndefined();
+      expect(hostingConfig.headers).toBeUndefined();
+    }, 180000);
+  });
+
+  describe('hosting with SSR', () => {
+    it('should configure hosting with SSR rewrites', async () => {
+      const hostingProject = uniq('app');
+      const functionProject = uniq('functions');
+
+      // Create a functions app that will be used as the hosting project
+      // (it has a build target which is required)
+      await runNxCommandAsync(
+        `generate @nx-toolkits/firebase:functions ${hostingProject}`
+      );
+
+      // Create another functions app for SSR
+      await runNxCommandAsync(
+        `generate @nx-toolkits/firebase:functions ${functionProject}`
+      );
+
+      // Then configure the first app for hosting with SSR
+      await runNxCommandAsync(
+        `generate @nx-toolkits/firebase:hosting ${hostingProject} --ssr=true --ssrFunction=${functionProject} --region=us-central1`
+      );
+
+      const firebaseJson = readJson('firebase.json');
+      const hostingConfig = firebaseJson.hosting.find(
+        (h: any) => h.target === hostingProject
+      );
+
+      expect(hostingConfig).toBeTruthy();
+      expect(hostingConfig.rewrites).toBeDefined();
+      expect(hostingConfig.rewrites).toHaveLength(1);
+      expect(hostingConfig.rewrites[0]).toEqual({
+        source: '**',
+        function: {
+          functionId: functionProject,
+          region: 'us-central1',
+        },
+      });
+    }, 180000);
+
+    it('should throw error when SSR enabled without ssrFunction', async () => {
+      const project = uniq('app');
+
+      // Create a project with build target first
+      await runNxCommandAsync(
+        `generate @nx-toolkits/firebase:functions ${project}`
+      );
+
+      await expect(
+        runNxCommandAsync(
+          `generate @nx-toolkits/firebase:hosting ${project} --ssr=true`
+        )
+      ).rejects.toThrow();
+    }, 180000);
+  });
 });

@@ -116,3 +116,98 @@ This will start the Genkit Developer UI at `http://localhost:4000` by default an
 # Run on a different port without auto-opening the browser
 nx run my-functions-app:genkit-ui --port=3000 --open=false
 ```
+
+## Firebase Hosting (⚠️ Experimental)
+
+> **Warning:** This feature is experimental and subject to change. Please report any issues you encounter.
+
+Configure Firebase Hosting for any existing Nx application that produces static build output (React, Vue, Angular, Svelte, etc.).
+
+### Generate Firebase Hosting Configuration
+
+Add Firebase Hosting to an existing Nx app:
+
+```bash
+nx g @nx-toolkits/firebase:hosting my-app
+```
+
+This will:
+
+- Update `firebase.json` with hosting configuration
+- Add a `deploy` target to your project
+- Configure the build output directory
+- Set up SPA rewrites and security headers (optional)
+
+#### Hosting Generator Options
+
+| Option          | Description                                                    | Default            |
+| --------------- | -------------------------------------------------------------- | ------------------ |
+| `--project`     | The Nx project to configure for Firebase Hosting              | (required)         |
+| `--site`        | Firebase Hosting site ID (defaults to project name)            | project name       |
+| `--buildTarget` | The build target to use (e.g., 'build:production')            | 'build'            |
+| `--rewrites`    | Add SPA rewrites (redirects all routes to index.html)          | true               |
+| `--headers`     | Add security headers                                           | true               |
+
+### Deploy to Firebase Hosting
+
+After configuring hosting, deploy your app:
+
+```bash
+# Build and deploy in one command
+nx deploy my-app
+
+# Or use Firebase CLI directly
+firebase deploy --only hosting:my-app
+```
+
+### Multiple Sites
+
+You can configure multiple apps for Firebase Hosting, each with its own site:
+
+```bash
+nx g @nx-toolkits/firebase:hosting app1 --site=app1-prod
+nx g @nx-toolkits/firebase:hosting app2 --site=app2-prod
+```
+
+### Server-Side Rendering (SSR) with Cloud Functions (EXPERIMENTAL)
+
+You can enable SSR by connecting Firebase Hosting to a Cloud Function:
+
+```bash
+# First, create a Firebase Functions app for SSR
+nx g @nx-toolkits/firebase:functions my-ssr-function
+
+# Then configure hosting with SSR
+nx g @nx-toolkits/firebase:hosting my-app --ssr --ssrFunction=my-ssr-function --region=us-central1
+```
+
+This will configure Firebase Hosting to route all requests to your Cloud Function, enabling server-side rendering.
+
+**Important SSR Notes:**
+
+- You must implement the SSR logic in your Cloud Function
+- The function should handle rendering your app server-side
+- Deploy the function before deploying hosting: `nx deploy my-ssr-function`
+- Supported for Angular Universal, Next.js, Nuxt, SvelteKit, etc.
+
+**Example deployment order:**
+
+```bash
+# 1. Build your app
+nx build my-app
+
+# 2. Deploy SSR function
+nx deploy my-ssr-function
+
+# 3. Deploy hosting
+nx deploy my-app
+```
+
+### Limitations (Experimental)
+
+- SSR support is experimental and requires manual function implementation
+- Firebase App Hosting (managed SSR) is not yet supported
+- Preview channels must be configured manually
+- Custom domain configuration requires manual `firebase.json` edits
+
+Please provide feedback on this experimental feature!
