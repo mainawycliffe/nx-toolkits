@@ -2,6 +2,20 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.11.0](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.10.0...firebase@0.11.0) (2025-12-07)
+
+
+### Features
+
+* **firebase:** add Firebase Genkit support and comprehensive e2e tests ([745e39d](https://github.com/mainawycliffe/nx-toolkits/commit/745e39d36f0479a18afe01245b9a83506502f169))
+* **firebase:** add Genkit support to functions generator ([df911f0](https://github.com/mainawycliffe/nx-toolkits/commit/df911f0334ced55292c5225bd551e97851303d79))
+
+
+### Bug Fixes
+
+* **firebase:** move dependencies to workspace root ([3fb3aff](https://github.com/mainawycliffe/nx-toolkits/commit/3fb3aff93f3129cde601e2246a75dd04f6867032))
+* **firebase:** remove deprecated Node versions from schema ([ac3aa6b](https://github.com/mainawycliffe/nx-toolkits/commit/ac3aa6b6f17241e884ef8dcb48534874e175a6a3))
+
 ## [0.10.0](https://github.com/mainawycliffe/nx-toolkits/compare/firebase@0.9.2...firebase@0.10.0) (2025-08-11)
 
 
