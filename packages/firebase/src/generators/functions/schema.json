@@ -58,6 +58,12 @@
           }
         ]
       }
+    },
+    "genkit": {
+      "type": "boolean",
+      "description": "Add Firebase Genkit support with developer UI",
+      "default": false,
+      "x-prompt": "Would you like to add Firebase Genkit support?"
     }
   },
   "required": [

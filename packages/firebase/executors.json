@@ -1,4 +1,10 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "executors": {}
+  "executors": {
+    "genkit-ui": {
+      "implementation": "./src/executors/genkit-ui/executor",
+      "schema": "./src/executors/genkit-ui/schema.json",
+      "description": "Launch the Firebase Genkit Developer UI"
+    }
+  }
 }

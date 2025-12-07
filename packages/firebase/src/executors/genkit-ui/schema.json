@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "version": 2,
+  "title": "Genkit Developer UI Executor",
+  "description": "Launch the Firebase Genkit Developer UI",
+  "type": "object",
+  "properties": {
+    "port": {
+      "type": "number",
+      "description": "Port to run the Genkit Developer UI on",
+      "default": 4000
+    },
+    "host": {
+      "type": "string",
+      "description": "Host to bind the Genkit Developer UI to",
+      "default": "localhost"
+    },
+    "open": {
+      "type": "boolean",
+      "description": "Automatically open the browser",
+      "default": true
+    }
+  },
+  "required": []
+}
