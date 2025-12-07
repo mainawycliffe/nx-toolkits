@@ -5,6 +5,10 @@ on:
     tags:
       - "firebase@*"
 
+permissions:
+  id-token: write # Required for OIDC
+  contents: read
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -73,5 +77,3 @@ jobs:
 
       - name: npm publish
         run: npm publish dist/packages/${{ steps.get-tag-name.outputs.result }} --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
